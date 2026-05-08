@@ -1,0 +1,50 @@
+---
+title: CSV file campaigns
+description: Static campaigns where you upload or maintain a spreadsheet of leads.
+---
+
+This type is labelled in the app as **Static, CSV files** (`Statyczna, pliki CSV`). It fits **lists you already have**—trade show scans, bought lists where legally allowed, internal exports—rather than live ad forms.
+
+## When to choose this type
+
+- Leads arrive as **rows in a table** (usually CSV) that you upload or refresh.
+- You do **not** need Meta Lead Ads for this funnel.
+
+## How it works (simple picture)
+
+1. You prepare a file with **at least the columns** your process needs (for example name, phone, email).
+2. In the campaign you open **Source** (`Źródło`) instead of **Forms**.
+3. You **map columns** to fields the assistant and automation understand.
+4. Automation runs on those leads like any other campaign.
+
+## Configuration checklist
+
+<Steps>
+  <Step title="Create the campaign">
+    **My campaigns** → **New campaign** → type **Static, CSV files**. You land on the campaign dashboard; the campaign may start **paused**.
+  </Step>
+  <Step title="Upload and map in Source">
+    Open **Source**. Follow the on-screen steps to **upload** the file and **match each column** to a lead field. Fix any errors the app reports before moving on.
+  </Step>
+  <Step title="Check sample leads">
+    Open **Leads** and confirm a few rows look correct (phone format, names, custom columns).
+  </Step>
+  <Step title="Agent, Phone, Automation">
+    Configure **Agent**, **Phone number**, and **Automation**. Use placeholders in scripts that match the field names you mapped.
+  </Step>
+  <Step title="Unpause when ready">
+    In **Campaign settings**, allow new leads only when the file process is stable and compliant with your privacy policy.
+  </Step>
+</Steps>
+
+## Data hygiene tips
+
+- Use **one country code style** for phones so outbound dialing behaves predictably.
+- Remove **duplicate rows** before upload if you do not want double calls.
+- Treat the file like **personal data**: restrict who can download or re-export it inside your company.
+
+## Related reading
+
+<Card title="Screen map" icon="map" href="/screen-map">
+  Where **Source** sits in the campaign menu.
+</Card>

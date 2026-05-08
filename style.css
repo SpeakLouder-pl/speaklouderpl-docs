@@ -1,0 +1,7 @@
+/* SpeakLouder: larger wordmark in the top bar (navbar). */
+#navbar img {
+  max-height: 2.25rem !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}

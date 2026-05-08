@@ -1,0 +1,50 @@
+---
+title: Meta lead forms campaigns
+description: Campaigns where leads come from Meta (Facebook) Lead Ads forms.
+---
+
+This campaign type is built for **leads collected through advertising**, especially **Meta Lead Ads**. Each person who submits the ad form becomes a lead in SpeakLouder with the answers they typed (name, phone, custom questions).
+
+## When to choose this type
+
+- You run **paid social** and use **instant forms** on Facebook or Instagram.
+- You want the voice assistant and SMS to **use the same fields** the lead filled in the ad (for example product interest or city).
+
+<Note>
+  In the **New campaign** dialog, this option may appear as **coming soon** depending on your workspace. If you cannot select it yet, use another campaign type temporarily or ask your SpeakLouder administrator when Meta campaigns will be enabled for you.
+</Note>
+
+## How it works (simple picture)
+
+1. Someone completes your **Lead Ad** form on Meta.
+2. Meta delivers the submission to SpeakLouder (after Meta integration and form mapping are set up).
+3. Your **automation** runs calls and SMS using those field values.
+
+## Configuration checklist
+
+<Steps>
+  <Step title="Connect Meta to your account">
+    In the main menu open **Integrations**, find **Meta Lead Ads**, and follow **Connect** when it is available. Approve Meta’s permissions so the app can list your **pages** and **lead forms**. If the button is not active yet, open **Instructions** on the same card for the latest in-app message.
+  </Step>
+  <Step title="Create or open a Meta-forms campaign">
+    Under **My campaigns**, create a campaign of this type (or open an existing one). New campaigns often start **paused** until you finish setup.
+  </Step>
+  <Step title="Pick the form in Forms">
+    Inside the campaign, open **Forms** (`Formularze`). Choose the **exact lead form** that should feed this campaign. The app uses that choice to know which questions exist for SMS and call scripts.
+  </Step>
+  <Step title="Finish Agent, Phone, and Automation">
+    Same as every campaign: set the assistant under **Agent**, the number under **Phone number**, then build **Automation**. Only turn off pause when you are ready for live traffic.
+  </Step>
+</Steps>
+
+## If leads do not appear
+
+- Confirm the **correct form** is selected for this campaign.
+- Confirm **Meta integration** still shows as connected under **Integrations**.
+- Check whether the campaign is **paused** in **Campaign settings**.
+
+## Related reading
+
+<Card title="Meta integration (account level)" icon="plug" href="/integrations/meta-leads">
+  OAuth, permissions, and what connecting Meta enables.
+</Card>

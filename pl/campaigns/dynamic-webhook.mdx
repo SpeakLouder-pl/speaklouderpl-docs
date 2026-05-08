@@ -1,0 +1,171 @@
+---
+title: Kampanie HTTP / Make.com
+description: Kampanie dynamiczne zasilane webhookiem — często z Make lub własnego systemu.
+---
+
+W aplikacji: **Dynamiczna HTTP / Make.com**. Inny system (np. scenariusz w **Make.com** lub Twój backend) **wysyła leady** na tajny adres URL (webhook), który SpeakLouder pokazuje w kampanii.
+
+## Kiedy ten typ
+
+- CRM, Make albo serwer mają **sam wysłać** leada w momencie zdarzenia.
+- Nie chcesz ręcznie wgrywać CSV przy każdej partii.
+
+## Jak to działa (w skrócie)
+
+1. SpeakLouder generuje **adres webhooka** z tokenem dla tej kampanii.
+2. Zewnętrzny system wysyła żądanie **HTTP** (zwykle `POST` z JSON) na ten adres.
+3. Powstaje **lead**, a **automatyzacja** działa jak zwykle.
+
+## Konfiguracja krok po kroku
+
+<Steps>
+  <Step title="Nowa kampania">
+    **Moje kampania** → **Nowa kampania** → **Dynamiczna HTTP / Make.com**. Domyślnie kampania bywa **wstrzymana**.
+  </Step>
+  <Step title="Źródło — skopiuj webhook">
+    **Źródło**: skopiuj **adres webhooka**, w razie potrzeby **obróć token**, wyślij **test** z poziomu kroków w UI (bez ręcznego składania JSON).
+  </Step>
+  <Step title="Dodatkowe pola">
+    Jeśli UI prosi o dopasowanie **pól dodatkowych** z treści żądania do leada — uzupełnij, żeby SMS i rozmowy miały zmienne.
+  </Step>
+  <Step title="Make (opcjonalnie)">
+    Zainstaluj aplikację SpeakLouder w Make (link z **Integracji** w SpeakLouder), w module wklej **token API kampanii**, żeby trafiać do właściwej kampanii. Szczegóły: strona integracji Make w tej dokumentacji.
+  </Step>
+  <Step title="Agent, numer, automatyzacja i start">
+    Dokończ konfigurację i dopiero wtedy **odwiesz** kampanię.
+  </Step>
+</Steps>
+
+## Bezpieczeństwo
+
+- URL webhooka traktuj jak **hasło** — wyciek spowoduje śmieciowe leady.
+- Przy wycieku użyj **rotacji tokena** w **Źródło**.
+- Zewnętrzny system powinien wołać wyłącznie **HTTPS**.
+
+## Webhook leadów: jak wygląda żądanie HTTP
+
+To endpoint **zapisu leada** za adresem skopiowanym z **Źródło**. CRM, Make lub skrypt wysyła **jednego leada na jedno żądanie**.
+
+### Zawsze tak samo (szkielet żądania)
+
+| Element | Zasada |
+| ------- | ------ |
+| Metoda | `POST` |
+| `Content-Type` | `application/json` |
+| URL | Pełny adres HTTPS z aplikacji, z parametrem `?token=…`. Token identyfikuje **kampanię**; nie ma osobnego „sekretu” w nagłówku. |
+| Body | **Jeden obiekt JSON** — nie tablica na rootcie i **nie** `{ "leads": [ … ] }`. |
+
+### Pola wymagane w korzeniu JSON
+
+| Pole | Znaczenie |
+| ---- | --------- |
+| `full_name` | Tekst (max ok. 500 znaków), po obcięciu spacji niepusty. |
+| `email` | Tekst w sensownym kształcie maila (jedno `@`, domena z kropką, bez spacji; max ok. 320 znaków). |
+| `phone` **albo** `phone_number` | Niepusty string; numer musi dać się znormalizować (najpewniej **format międzynarodowy**, np. `+48 123 456 789`). Wystarczy jedno z pól. |
+| `metadata` | Obiekt (patrz niżej). Jeśli go nie wyślesz, serwer przyjmie `{}`. |
+
+<Warning>
+  Nie umieszczaj prawdziwego URL webhooka ani tokena na screenach, w ticketach ani w publicznej dokumentacji — to jak hasło.
+</Warning>
+
+### Niestandardowe zmienne (`metadata`)
+
+W **Źródło** definiujesz **dodatkowe klucze** (typ **tekst** albo **liczba**). To jest **schemat** `metadata` dla tej kampanii.
+
+Jak to działa:
+
+1. **Nazwy** — wpisujesz etykietę; aplikacja zapisuje znormalizowany klucz (małe litery, spacje → podkreślenia). **Zarezerwowane** i zablokowane są m.in.: `full_name`, `email`, `phone`, `phone_number`, `metadata`, `leads`, `campaign_id`.
+2. **Dokładny zestaw kluczy** — po zapisaniu schematu każde żądanie musi mieć w `metadata` **dokładnie ten sam zestaw kluczy** (ta sama liczba, te same nazwy). Brak lub nadmiar → błąd `metadata keys do not match campaign schema`.
+3. **Typy** — pola `string` muszą być JSON-owymi stringami. Pola `number` mogą być liczbą w JSON **albo** stringiem numerycznym (np. `"12.5"`); śmieciowa wartość jest odrzucona.
+4. **Brak dodatkowych pól** — jeśli nie zdefiniowałeś żadnych kluczy, musisz wysłać `"metadata": {}`.
+
+`metadata` możesz też wysłać jako **tablicę** obiektów `{ "key": "…", "value": … }` — serwer i tak złoży z tego jeden obiekt przed walidacją.
+
+### Przykład: tylko pola podstawowe (bez custom)
+
+```json
+{
+  "full_name": "Jan Kowalski",
+  "email": "jan@example.com",
+  "phone_number": "+48 123 456 789",
+  "metadata": {}
+}
+```
+
+### Przykład: dwa pola tekstowe (`company_name`, `source_tag`)
+
+Załóżmy, że oba są w schemacie kampanii jako string.
+
+```json
+{
+  "full_name": "Jan Kowalski",
+  "email": "jan@example.com",
+  "phone": "+48123456789",
+  "metadata": {
+    "company_name": "Acme Sp. z o.o.",
+    "source_tag": "webinar_marzec"
+  }
+}
+```
+
+### Przykład: pole liczbowe (`lead_score`)
+
+Jeśli w aplikacji `lead_score` jest typu **liczba**:
+
+```json
+{
+  "full_name": "Jan Kowalski",
+  "email": "jan@example.com",
+  "phone_number": "+48123456789",
+  "metadata": {
+    "lead_score": 42
+  }
+}
+```
+
+Dopuszczalne jest też `"lead_score": "42"` jako string numeryczny.
+
+### Przykład `curl` (podstaw swój adres z Źródła)
+
+```bash
+curl -sS -X POST "https://<twój-host>/functions/v1/leads-webhook?token=<twój-token>" \
+  -H "Content-Type: application/json" \
+  -d "{\"full_name\":\"Jan Kowalski\",\"email\":\"jan@example.com\",\"phone_number\":\"+48123456789\",\"metadata\":{}}"
+```
+
+Host i token muszą być **dokładnie** takie, jak w aplikacji w **Źródło** dla tej kampanii.
+
+### Odpowiedź przy sukcesie
+
+HTTP **200** i JSON:
+
+```json
+{ "ok": true, "lead_id": "<uuid>" }
+```
+
+### Typowe błędy (HTTP 400)
+
+W odpowiedzi jest pole `"error"`, np.:
+
+- `Body is not valid JSON` / `Body must be a single JSON object (one lead)`
+- `full_name must be a string` / `email must be a string` / `invalid phone number`
+- `metadata keys do not match campaign schema`
+- Pakiet `{ "leads": [...] }` **nie jest obsługiwany** — wyślij **jeden obiekt na POST**.
+
+Inne kody: **401** (brak lub zły token), **413** (za duży body), **429** (za dużo zapisów w krótkim czasie dla tej kampanii — odczekaj i powtórz).
+
+### Limity (dla integratorów)
+
+- Całe JSON ma limit rzędu **512 KB**.
+- Są limity długości m.in. na `full_name`, `email`, telefon oraz na liczbę i długość wpisów w `metadata` (np. do **250** pól, długie stringi do ok. **12 000** znaków).
+- Działa **limit częstotliwości** per kampania (rząd wielkości **60 nowych leadów na 60 sekund**); powyżej możesz dostać **429** z sugestią ponowienia.
+
+### Wstrzymana kampania
+
+Lead może się **zapisać** (dostajesz `ok` i `lead_id`), ale **automatyzacja** dla nowych leadów może nie wystartować, dopóki kampania jest **wstrzymana**. Odwieś kampanię, gdy scenariusz ma już działać.
+
+## Powiązane
+
+<Card title="Integracja Make.com" icon="plug" href="/pl/integrations/make">
+  Instalacja aplikacji w Make i token kampanii.
+</Card>

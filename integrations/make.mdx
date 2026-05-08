@@ -1,0 +1,32 @@
+---
+title: Make.com
+description: Send data to SpeakLouder or react after calls using Make scenarios.
+---
+
+<img src="/images/makecom_logo.svg" alt="Make.com logo" width="120" />
+
+## What Make.com is here for
+
+**Make** (formerly Integromat) is a visual automation tool. With SpeakLouder you typically use it to:
+
+- **Push leads or events** into a campaign using a secure **campaign API token** (your technical contact generates or rotates this in the product).
+- **Receive HTTP requests** after a voice call when you enable a **post-call webhook** in **Automation**, so Make can pass data to a spreadsheet, CRM, or chat tool.
+
+## Where to start in the app
+
+1. Open **Integrations** in the main menu.
+2. Find **Make.com** — there is usually an **installation link** for the SpeakLouder app inside Make’s directory and **instructions** with screenshots for placing the campaign token in a Make module.
+
+## Campaign token
+
+Each campaign has its own token so Make knows **which campaign** to update. Never share the token in public screenshots or chat channels; rotate it if it leaks.
+
+## Post-call webhook (high level)
+
+In **Automation**, you can turn on a webhook that sends one **HTTPS POST** with a structured payload shortly after a voice call ends. In Make, you often start a scenario with a **Custom webhook** module listening on the URL Make gives you, then paste that URL into SpeakLouder.
+
+The exact JSON fields are described in **Help** inside the campaign (Polish) and in your technical runbook; they include lead identifiers, phone, optional transcript summary fields, and custom metadata your form mapped.
+
+## Shopify flows
+
+If your team uses **Shopify** abandoned-cart flows, they may import a prepared flow file from SpeakLouder’s public materials. That is separate from generic Make modules—ask whoever manages Shopify for the current file name and version.

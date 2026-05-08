@@ -1,81 +1,43 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
-icon: 'rocket'
+title: Quick start
+description: Sign in, create a campaign, and find your way around.
 ---
 
-## Get started in three steps
+## Before you start
 
-Get your documentation site running locally and make your first customization.
+You need:
 
-### Step 1: Set up your local environment
+- A **browser** on a computer (the product is a normal website).
+- An **account** created by you or your administrator.
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+The live app opens at [app.speaklouder.pl](https://app.speaklouder.pl). Bookmarks should point there.
 
-### Step 2: Deploy your changes
+## Sign in and security
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+1. Open the app link you were given.
+2. Sign in with **email and password** or the method your organization enabled.
+3. If the product asks for **extra verification** (for example a code from an authenticator app), complete that step. This protects your leads and phone usage.
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+## After login: three places to know
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+| Area in the app | What it is for |
+| ---------------- | -------------- |
+| **Overview** (home) | Snapshot of your campaigns and a button to create a new one. |
+| **My campaigns** | List of all campaigns; open one to work inside it. |
+| **Integrations** | Connect external accounts (Meta, Gmail, Make) once for your whole login. |
 
-### Step 3: Go live
+## Open your first campaign
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+1. Go to **My campaigns**.
+2. Click **New campaign** (or open an existing one).
+3. Inside a campaign you will see a **left menu** with steps such as **Dashboard**, **Forms** or **Source**, **Agent**, **Phone number**, **Leads**, **Calls**, **Automation**, **Help**, and **Campaign settings**.
 
-## Next steps
+Use **Help** inside the campaign for a short in-app guide in Polish that mirrors many topics here.
 
-Now that you have your docs running, explore these key features:
+## Typical next steps
 
-<CardGroup cols={2}>
+1. **Connect an integration** (if leads come from Meta, Gmail, or Make) under **Integrations** in the main menu — see the Integrations section in this site.
+2. In the campaign, set **Forms** or **Source** so the app knows which fields each lead has (name, phone, answers from a form).
+3. Configure the **Agent** and **Phone number**, then build **Automation** before turning traffic on.
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
-
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+If something is paused in **Campaign settings**, new leads may not be accepted until you turn it back on.

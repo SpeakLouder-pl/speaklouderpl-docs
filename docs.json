@@ -1,126 +1,118 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "SpeakLouder",
+  "description": "Help center for SpeakLouder — AI voice follow-up for leads.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2563EB",
+    "light": "#3B82F6",
+    "dark": "#1D4ED8"
   },
-  "favicon": "/favicon.svg",
+  "appearance": {
+    "default": "light",
+    "strict": false
+  },
+  "favicon": "/images/favicon.ico",
+  "logo": {
+    "light": "/images/logovertical.png",
+    "dark": "/images/logovertical.png",
+    "href": "https://app.speaklouder.pl"
+  },
   "navigation": {
-    "tabs": [
+    "global": {
+      "anchors": [
+        {
+          "anchor": "App",
+          "href": "https://app.speaklouder.pl",
+          "icon": "arrow-up-right-from-square"
+        }
+      ]
+    },
+    "languages": [
       {
-        "tab": "Guides",
+        "language": "en",
+        "default": true,
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Open app",
+            "href": "https://app.speaklouder.pl"
+          }
+        },
         "groups": [
           {
-            "group": "Getting started",
+            "group": "First steps",
+            "pages": ["index", "quickstart", "how-it-works"]
+          },
+          {
+            "group": "Using the app",
+            "pages": ["screen-map", "guides/lead-panel", "credits"]
+          },
+          {
+            "group": "Campaign types",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "campaigns/meta-forms",
+              "campaigns/static-csv",
+              "campaigns/dynamic-webhook",
+              "campaigns/shopify-abandoned-cart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Integrations",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "integrations/meta-leads",
+              "integrations/gmail",
+              "integrations/make"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "language": "pl",
+        "navbar": {
+          "primary": {
+            "type": "button",
+            "label": "Otwórz aplikację",
+            "href": "https://app.speaklouder.pl"
+          }
+        },
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Pierwsze kroki",
+            "pages": ["pl/index", "pl/quickstart", "pl/how-it-works"]
+          },
+          {
+            "group": "Korzystanie z aplikacji",
+            "pages": ["pl/screen-map", "pl/guides/panel-leada", "pl/credits"]
+          },
+          {
+            "group": "Typy kampanii",
             "pages": [
-              "api-reference/introduction"
+              "pl/campaigns/meta-forms",
+              "pl/campaigns/static-csv",
+              "pl/campaigns/dynamic-webhook",
+              "pl/campaigns/shopify-abandoned-cart"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Integracje",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "pl/integrations/meta-leads",
+              "pl/integrations/gmail",
+              "pl/integrations/make"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    ]
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "links": []
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "socials": {}
+  },
+  "contextual": {
+    "options": ["copy", "view"]
   }
 }

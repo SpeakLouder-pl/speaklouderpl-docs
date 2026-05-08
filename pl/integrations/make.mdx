@@ -1,0 +1,30 @@
+---
+title: Make.com
+description: Make (dawniej Integromat) — scenariusze obok SpeakLouder.
+---
+
+<img src="/images/makecom_logo.svg" alt="Logo Make.com" width="120" />
+
+## Do czego się Make przyda
+
+**Make** to narzędzie do automatyzacji „klockami”. Ze SpeakLouder najczęściej łączy się je tak, żeby:
+
+- **Wysyłać dane do kampanii** przy użyciu **tokenu API kampanii** (unikalny identyfikator — generuje lub rotuje osoba techniczna w panelu).
+- **Odbierać zdarzenia po rozmowie**, gdy w **Automatyzacji** włączysz **webhook po rozmowie** i podasz adres URL z modułu Webhook w Make.
+
+## Gdzie zacząć w SpeakLouder
+
+1. Menu główne → **Integracje**.
+2. Karta **Make.com** — tam zwykle jest **link do instalacji** aplikacji SpeakLouder w katalogu Make oraz **instrukcja** (często ze zrzutami), jak wkleić token kampanii do modułu, żeby żądania trafiały do właściwej kampanii w [app.speaklouder.pl](https://app.speaklouder.pl).
+
+## Token kampanii
+
+Każda kampania ma **własny token**, żeby Make nie pomylił projektów. Nie wklejaj tokenu na publicznych screenach ani na czatach firmowych; w razie wycieku — **rotacja** tokenu w ustawieniach kampanii / u administratora.
+
+## Webhook po rozmowie (idea)
+
+Po zakończeniu rozmowy głosowej SpeakLouder może wysłać jedno żądanie **HTTPS POST** z danymi JSON na adres, który podasz (np. adres z modułu Webhook w Make). Szczegóły pól są opisane w **Pomoc** wewnątrz kampanii oraz w dokumentacji technicznej dla zespołu — tu bez numerów pól, żeby nie duplikować wrażliwych przykładów.
+
+## Shopify
+
+Jeśli używasz przepływów **Shopify** (np. porzucony koszyk), zespół może importować gotowy plik scenariusza — to osobna ścieżka od „gołego” Make; pytaj osobę od Shopify o aktualną wersję pliku.

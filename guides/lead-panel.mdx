@@ -1,0 +1,60 @@
+---
+title: Lead detail panel
+description: What you see after opening a lead from the list, using a test contact as an example.
+---
+
+The in-app **Help** tab in a campaign links here instead of duplicating long tutorials, so this page **does not include a Help tab screenshot**.
+
+## Lead list
+
+Under **Leads** you see a table: search, sort, filters, and each row shows a short summary (stage, last contact, next action). **Details** opens the full lead panel.
+
+<img src="/images/app-leady-lista-jan-kowalski.png" alt="Campaign lead list with one test lead and a Details button" />
+
+## Header of the lead panel
+
+At the top you have:
+
+- The **lead name** (or whatever was stored from the form / webhook).
+- A **source** line under the title (how the lead arrived).
+- **Back** — returns to the lead list for this campaign.
+- **Change status** — manually set pipeline outcome (qualified, not interested, no contact) or **mark as new** to restart the scenario from the beginning. A manual change **cancels scheduled SMS and calls** for this lead (the menu explains this).
+- **Delete** — permanently removes the lead, history, and follow-up schedule.
+- **Add note** — opens a dialog; notes are visible only in this campaign context.
+
+<img src="/images/app-lead-panel-gora.png" alt="Upper part of lead panel: contact data, contact status, next steps" />
+
+## Top row cards
+
+### Contact details
+
+Name, **phone**, and optional **email** — the fields automation and SMS placeholders use.
+
+### Contact status
+
+- **Stage** — where the lead is in the **automation scenario** (phase name).
+- **Outcome** — pipeline label (e.g. new, qualified, no contact).
+- When the stage is **End**, you also see **Scenario outcome** (how the path finished).
+- **SMS sent** / **Call attempts** — counters from workflow summary.
+- **Created** — when the record was created.
+
+If parallel calls forced the schedule to shift, a **yellow notice** may appear about a random 5–15 minute delay, with a counter of such events.
+
+### Next steps
+
+Either a **concrete upcoming step** (type, phase, due time) or a message like: no pending steps — the **planned scenario and completed actions** are shown **below** (timeline).
+
+## Further down the same page (no separate screenshot)
+
+Scroll on the same screen to see:
+
+- **Data** — question/answer pairs from the lead form or extra fields (if any).
+- **Notes / AI analysis** — team notes and AI-tagged entries, with timestamps and delete where allowed.
+- **Scenario timeline** — planned and executed steps (calls, SMS, etc.) in order.
+- **Contact attempts** — inbound/outbound call details tied to this lead.
+
+## Account settings (main menu)
+
+Under **Settings** (account level, not a single campaign) you typically have **account email** (often read-only — change via support), **low credit email alerts**, **password reset**, and **account deletion**. The screenshot below has the **email line obscured** so we do not publish personal data in the repo.
+
+<img src="/images/app-ustawienia.png" alt="Account settings: email area obscured, notifications and password sections" />
