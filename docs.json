@@ -49,6 +49,10 @@
             "pages": ["screen-map", "guides/lead-panel", "credits"]
           },
           {
+            "group": "Workflow & scenario",
+            "pages": ["guides/workflow-and-scenario"]
+          },
+          {
             "group": "Campaign types",
             "pages": [
               "campaigns/meta-forms",
@@ -84,6 +88,10 @@
           {
             "group": "Korzystanie z aplikacji",
             "pages": ["pl/screen-map", "pl/guides/panel-leada", "pl/credits"]
+          },
+          {
+            "group": "Workflow i scenariusz",
+            "pages": ["pl/guides/workflow-i-scenariusz"]
           },
           {
             "group": "Typy kampanii",

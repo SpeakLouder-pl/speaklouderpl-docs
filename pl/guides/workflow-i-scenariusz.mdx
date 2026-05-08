@@ -1,0 +1,82 @@
+---
+title: Workflow i scenariusz
+description: Jak działa ścieżka automatyzacji w kampanii — moduły, oczekiwania, edytor i limity.
+---
+
+Każda kampania ma **jedną liniową ścieżkę automatyzacji** (**scenariusz**). Leady przechodzą **Start → kroki pośrednie → Koniec** z **oczekiwaniami** między krokami. Ustawiasz to w menu kampanii: **Automatyzacja**.
+
+## Strona Automatyzacja (przed edycją)
+
+Na **Automatyzacji** widzisz m.in.:
+
+- **Podgląd** — skrót zapisanej ścieżki (Start, przerwy, Połączenie/SMS/e-mail, Koniec) tylko do odczytu.
+- **Godziny dzwonienia** — okno, w którym mogą wychodzić automatyczne działania (zapis **Zapisz okno**).
+- **Post-call webhook** — opcjonalny adres HTTPS po rozmowie, gdy rozmówca coś powiedział (to co innego niż leady z Make).
+
+<img src="/images/app-kampania-automatyzacja.png" alt="Automatyzacja kampanii: podgląd, godziny, webhook po rozmowie" />
+
+**Historia & Zaplanowane** — historia i harmonogram. Niebieski **Edytuj scenariusz** otwiera edytor graficzny (nakładka).
+
+## Układ edytora scenariusza
+
+Po **Edytuj scenariusz** nakładka **Scenariusz** pokazuje:
+
+- **Planszę (lewa)** — pionowy przepływ: **Start** (jeden na scenariusz), **moduły środkowe**, **Koniec** (jeden). **Odcinki** między blokami to **czas oczekiwania** przed kolejnym krokiem (sekundy, minuty, godziny lub dni — w granicach narzuconych przez produkt).
+- **Pasek narzędzi** — m.in. **Dopasuj widok**, **Zapisz scenariusz**, **Zamknij**, zoom.
+- **Prawy panel** — pusty, dopóki nie wybierzesz **modułu** albo **odcinka z minutami** między modułami (tekst podpowiedzi to tłumaczy).
+
+<img src="/images/app-scenariusz-edytor.png" alt="Edytor: Start, Połączenie, Koniec; panel Szczegóły pusty do czasu wyboru" />
+
+## Moduły z menu „Dodaj moduł”
+
+Przycisk **+ Dodaj moduł** na dole planszy otwiera listę:
+
+| Moduł w UI | Do czego służy |
+| ---------- | -------------- |
+| **Połączenie** | **Połączenie głosowe** wychodzące w tej fazie. **Co mówi asystent** ustawiasz u **Agenta** (połączenie wychodzące), nie w tym polu. |
+| **SMS** | Wysyłka **SMS** w tym kroku — treść i placeholdery w prawym panelu. |
+| **Wyślij e-mail** | **W przygotowaniu** — gdy będzie dostępny, pozwoli na krok z wiadomością e-mail w scenariuszu. |
+
+**Start** i **Koniec** są stałe; nie dodajesz ich z menu.
+
+## Odcinki (czas między krokami)
+
+Każda strzałka między dwoma modułami ma **opóźnienie** (widoczne na planszy, np. „10 sek.” lub „5 min”). To czas po **zakończeniu** poprzedniego kroku, zanim ruszy następny. Może być od **natychmiast (0)** do **5 dni** na odcinek.
+
+## Wybór **Połączenie** — prawy panel
+
+Kliknij kartę **Połączenie** (np. **Faza 1**). Po prawej masz **ustawienia tej fazy**:
+
+- **Nazwa fazy** — etykieta w aplikacji i na osi czasu.
+- **Informacja** — skrypt **rozmowy wychodzącej** edytujesz u **Agenta**.
+- **SMS po odebranym połączeniu** (opcjonalnie) — zgodnie z opisem na ekranie: SMS tylko przy wystarczającym zainteresowaniu po rozmowie; poczta głosowa i niskie zainteresowanie są pomijane.
+- **Akcja po rozmowie** — np. **transfer na numer + e-mail z podsumowaniem** albo **e-mail z podsumowaniem**; pola zależą od wyboru (format numeru +48 …, adres e-mail podsumowania).
+- **Ustawienia zaawansowane** — dodatkowe opcje, gdy kampania je udostępnia.
+- **Zapisz** / **Usuń moduł**.
+
+<img src="/images/app-scenariusz-polaczenie-panel.png" alt="Zaznaczone Połączenie: panel z nazwą fazy, SMS po odebraniu, akcją po rozmowie" />
+
+## Moduł **SMS** (i przyszły **e-mail**)
+
+Dla **SMS** w panelu pojawi się m.in. **treść**, limit znaków i zasady **ASCII** (polskie znaki są normalizowane zgodnie z komunikatem w produkcie). **E-mail** — po uruchomieniu funkcji w produkcie — **temat** i **treść** w tym samym panelu.
+
+## Limity (co wymusza edytor)
+
+Najczęstsze ograniczenia:
+
+- **Ok. 40 węzłów** na planszy (łącznie ze Start i Koniec).
+- **Co najwyżej 4 moduły Połączenie** — zgodnie z limitem prób kontaktu przy braku odbioru.
+- **Treść SMS** — do **160 znaków** po normalizacji (jak jedna ramka GSM).
+- **Nazwa fazy** — do **80 znaków**.
+
+Gdy zapis jest niemożliwy, aplikacja pokaże krótki komunikat (np. za dużo **Połączenie** albo brak wymaganego kroku).
+
+## Zapis i zamknięcie
+
+**Zapisz scenariusz** zapisuje graf. **Zamknij** zamyka nakładkę — najpierw zapisz zmiany, jeśli chcesz je zachować.
+
+## Powiązane
+
+- [Mapa ekranów](/pl/screen-map) — gdzie w menu jest **Automatyzacja**.
+- [Jak to się układa](/pl/how-it-works) — lead → scenariusz → połączenie/SMS.
+- [Make.com](/pl/integrations/make) — leady z zewnątrz i webhook po rozmowie.
