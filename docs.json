@@ -14,8 +14,8 @@
   },
   "favicon": "/images/favicon.ico",
   "logo": {
-    "light": "/images/logovertical.png",
-    "dark": "/images/logovertical.png",
+    "light": "/images/logobox.png",
+    "dark": "/images/logobox.png",
     "href": "https://app.speaklouder.pl"
   },
   "navigation": {
