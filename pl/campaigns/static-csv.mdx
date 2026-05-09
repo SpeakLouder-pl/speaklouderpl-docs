@@ -1,50 +1,17 @@
 ---
-title: Kampanie z pliku CSV
-description: Kampanie statyczne — import listy leadów z pliku.
+title: Typ kampanii, import CSV
+description: Ustawienie kampanii dla leadów z plików CSV.
 ---
 
-W aplikacji ten typ to **Statyczna, pliki CSV**. Nadaje się do **list, które już masz** (eksport z CRM, legalnie pozyskana baza, zapis z targów), a nie do „żywego” formularza z reklamy Meta w tym samym sensie.
+Użyj tego typu, gdy leady dostajesz w plikach CSV.
 
-## Kiedy go wybrać
+## Ścieżka ustawienia
 
-- Leady przychodzą jako **wiersze w tabeli** (najczęściej CSV), które wgrywasz lub odświeżasz.
-- Nie potrzebujesz w tej ścieżce **formularza Lead Ads z Meta**.
+1. Utwórz kampanię.
+2. Otwórz **Źródło**.
+3. Wgraj CSV i zmapuj pola.
+4. Skonfiguruj **Agent** i **Automatyzacja**.
 
-## Jak to działa (w skrócie)
+## Wskazówka
 
-1. Przygotuj plik z kolumnami, których potrzebujesz (np. imię, telefon, e-mail).
-2. W kampanii pracujesz w **Źródło**, nie w **Formularze**.
-3. **Mapujesz kolumny** na pola leada w aplikacji.
-4. Dalej działa ta sama **automatyzacja** co w innych kampaniach.
-
-## Konfiguracja krok po kroku
-
-<Steps>
-  <Step title="Nowa kampania">
-    **Moje kampanie** → **Nowa kampania** → **Statyczna, pliki CSV**. Kampania może startować jako **wstrzymana**.
-  </Step>
-  <Step title="Import w Źródło">
-    Wejdź w **Źródło**. Wgraj plik i **przypisz każdą kolumnę** do pola. Popraw błędy, które pokaże walidacja, zanim pójdziesz dalej.
-  </Step>
-  <Step title="Sprawdź leady">
-    Otwórz **Leady** i obejrzyj kilka rekordów (format telefonu, imiona, dodatkowe pola).
-  </Step>
-  <Step title="Agent, numer, automatyzacja">
-    Ustaw **Agenta**, **Numer telefonu** i **Automatyzację**. W tekstach używaj nazw pól zgodnych z mapowaniem.
-  </Step>
-  <Step title="Włącz przyjmowanie leadów">
-    W **Ustawieniach kampanii** wyłącz **wstrzymanie**, gdy proces plikowy i RODO są dopięte.
-  </Step>
-</Steps>
-
-## Dobre praktyki
-
-- Ujednolić **format numerów** (np. z kodem kraju).
-- Usunąć **duplikaty** z pliku, jeśli nie chcesz podwójnych połączeń.
-- Traktować plik jak **dane osobowe** — ograniczyć dostęp w firmie.
-
-## Powiązane
-
-<Card title="Mapa ekranów" icon="map" href="/pl/screen-map">
-  Gdzie w menu jest **Źródło**.
-</Card>
+Najpierw wgraj mały plik testowy, sprawdź mapowanie, potem pełną paczkę.

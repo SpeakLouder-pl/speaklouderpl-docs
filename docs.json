@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "SpeakLouder",
-  "description": "Help center for SpeakLouder — AI voice follow-up for leads.",
+  "description": "Help center for SpeakLouder.",
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
@@ -44,32 +44,37 @@
         },
         "groups": [
           {
-            "group": "First steps",
-            "pages": ["index", "quickstart", "how-it-works"]
+            "group": "Start",
+            "pages": [
+              "index",
+              "quickstart",
+              "how-it-works"
+            ]
           },
           {
-            "group": "Using the app",
-            "pages": ["screen-map", "guides/lead-panel", "credits"]
+            "group": "Daily work",
+            "pages": [
+              "screen-map",
+              "guides/lead-panel",
+              "guides/workflow-and-scenario",
+              "credits"
+            ]
           },
           {
-            "group": "Workflow & scenario",
-            "pages": ["guides/workflow-and-scenario"]
-          },
-          {
-            "group": "Campaign types",
+            "group": "Campaign setup",
             "pages": [
               "campaigns/meta-forms",
               "campaigns/static-csv",
-              "campaigns/dynamic-webhook",
-              "campaigns/shopify-abandoned-cart"
+              "campaigns/shopify-abandoned-cart",
+              "campaigns/dynamic-webhook"
             ]
           },
           {
             "group": "Integrations",
             "pages": [
               "integrations/meta-leads",
-              "integrations/gmail",
-              "integrations/make"
+              "integrations/make",
+              "integrations/gmail"
             ]
           }
         ]
@@ -85,32 +90,37 @@
         },
         "groups": [
           {
-            "group": "Pierwsze kroki",
-            "pages": ["pl/index", "pl/quickstart", "pl/how-it-works"]
+            "group": "Start",
+            "pages": [
+              "pl/index",
+              "pl/quickstart",
+              "pl/how-it-works"
+            ]
           },
           {
-            "group": "Korzystanie z aplikacji",
-            "pages": ["pl/screen-map", "pl/guides/panel-leada", "pl/credits"]
+            "group": "Codzienna praca",
+            "pages": [
+              "pl/screen-map",
+              "pl/guides/panel-leada",
+              "pl/guides/workflow-i-scenariusz",
+              "pl/credits"
+            ]
           },
           {
-            "group": "Workflow i scenariusz",
-            "pages": ["pl/guides/workflow-i-scenariusz"]
-          },
-          {
-            "group": "Typy kampanii",
+            "group": "Ustawienie kampanii",
             "pages": [
               "pl/campaigns/meta-forms",
               "pl/campaigns/static-csv",
-              "pl/campaigns/dynamic-webhook",
-              "pl/campaigns/shopify-abandoned-cart"
+              "pl/campaigns/shopify-abandoned-cart",
+              "pl/campaigns/dynamic-webhook"
             ]
           },
           {
             "group": "Integracje",
             "pages": [
               "pl/integrations/meta-leads",
-              "pl/integrations/gmail",
-              "pl/integrations/make"
+              "pl/integrations/make",
+              "pl/integrations/gmail"
             ]
           }
         ]
@@ -124,6 +134,9 @@
     "socials": {}
   },
   "contextual": {
-    "options": ["copy", "view"]
+    "options": [
+      "copy",
+      "view"
+    ]
   }
 }

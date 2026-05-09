@@ -1,51 +1,15 @@
 ---
-title: Kampanie Shopify (porzucone koszyki)
-description: Lead z porzuconego koszyka w Shopify trafia do SpeakLoudera przez Flow.
+title: Typ kampanii, Shopify porzucony koszyk
+description: Ustawienie kampanii dla follow up po porzuconym koszyku Shopify.
 ---
 
-Typ: **Shopify, porzucone koszyki**. Dla sklepów na **Shopify**, które używają (lub mogą zainstalować) **Shopify Flow**, żeby po **porzuconym koszyku** uruchomić follow-up głosowy lub SMS w SpeakLouder.
+Użyj tego typu, jeśli chcesz dzwonić lub wysyłać SMS po zdarzeniach porzuconego koszyka.
 
-## Kiedy ten typ
+## Ścieżka ustawienia
 
-- Sprzedajesz na **Shopify**.
-- Chcesz, żeby nazwy produktów z koszyka były w **jednym polu** dla agenta (w produkcie przygotowane jako **`product_names`** — lista po przecinkach, bez ręcznego ustawiania schematu).
+1. Utwórz kampanię pod przepływ Shopify.
+2. Podłącz źródło Shopify zgodnie z konfiguracją konta.
+3. Ustaw timing workflow i strategię połączeń.
+4. Monitoruj wyniki w **Leady** i **Połączenia**.
 
-## Jak to działa (w skrócie)
-
-1. W Shopify Flow odpala się trigger **porzuconego koszyka** (wg Twojego szablonu).
-2. Akcja wysyła dane na **webhook** pokazany w SpeakLouderze dla tej kampanii.
-3. Powstaje lead z listą produktów i działa **automatyzacja**.
-
-## Konfiguracja krok po kroku
-
-<Steps>
-  <Step title="Nowa kampania Shopify">
-    **Moje kampanie** → **Nowa kampania** → **Shopify, porzucone koszyki**.
-  </Step>
-  <Step title="Shopify Flow">
-    Z panelu Shopify zainstaluj **Flow** ze sklepu aplikacji, jeśli jeszcze go nie masz.
-  </Step>
-  <Step title="Szablon .flow z SpeakLoudera">
-    W kampanii: **Źródło**. Instrukcja w aplikacji prowadzi przez **pobranie pliku `.flow`**, **import** do Shopify Flow i ustawienie akcji na adres webhooka tej kampanii.
-  </Step>
-  <Step title="Wklej adres webhooka">
-    Na **Źródło** skopiuj **pełny URL webhooka** do akcji w Flow. Jeśli pole jest puste, sprawdź konfigurację środowiska — zwykle adres generuje się automatycznie.
-  </Step>
-  <Step title="Test">
-    Zrób kontrolowany test (najlepiej na sklepie testowym): porzuć koszyk, sprawdź **Leady** i log **Automatyzacji**.
-  </Step>
-  <Step title="Agent, numer, automatyzacja">
-    Ułóż prompt tak, żeby asystent sensownie odczytywał **wiele nazw produktów**; ustaw numer i scenariusz przed pełnym ruchem.
-  </Step>
-</Steps>
-
-## Na co uważać
-
-- Długa lista produktów w jednym polu może być **uciążliwa w rozmowie** — rozważ skrócenie listy już w Flow.
-- Oddziel **kampanie testowe** od produkcyjnych.
-
-## Powiązane
-
-<Card title="Kampanie HTTP / webhook" icon="webhook" href="/pl/campaigns/dynamic-webhook">
-  Podobna logika webhooka w innych scenariuszach.
-</Card>
+<img src="/images/app-moje-kampanie.png" alt="Lista kampanii z różnymi typami" />

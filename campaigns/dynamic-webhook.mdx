@@ -1,171 +1,21 @@
 ---
-title: HTTP / Make.com campaigns
-description: Dynamic campaigns fed by a webhook—often used with Make.com or your own server.
+title: Campaign type, webhook (advanced)
+description: Campaign setup for technical webhook integrations.
 ---
 
-In the app this type appears as **Dynamic, HTTP / Make.com** (`Dynamiczna HTTP / Make.com`). Leads are **pushed in by another system** over the internet using a **secret URL (webhook)** that SpeakLouder shows inside the campaign.
-
-## When to choose this type
-
-- A CRM, **Make.com** scenario, or your backend should **create or update leads** the moment something happens elsewhere.
-- You do **not** want to upload CSVs by hand for this flow.
-
-## How it works (simple picture)
-
-1. SpeakLouder generates a **campaign webhook URL** with a token. Only people who know the URL can post leads to that campaign.
-2. Your other system sends an **HTTP request** (usually `POST` with JSON) to that URL when an event occurs.
-3. The app turns the payload into a **lead record** and your **automation** continues from there.
-
-## Configuration checklist
-
-<Steps>
-  <Step title="Create the campaign">
-    **My campaigns** → **New campaign** → **Dynamic, HTTP / Make.com**. Note the campaign starts **paused** by default until you are ready.
-  </Step>
-  <Step title="Open Source and copy the webhook">
-    Go to **Source** (`Źródło`). The page is designed so you can **copy the webhook address**, rotate the token if needed, and optionally **send a test** from the browser without writing JSON by hand.
-  </Step>
-  <Step title="Map or confirm extra fields">
-    If the product asks you to align **extra fields** from the payload with lead properties, complete that here so SMS and calls can use them.
-  </Step>
-  <Step title="Connect Make (optional)">
-    For no-code automation, install the **SpeakLouder** app in [Make.com](https://www.make.com) from **Integrations** in SpeakLouder, then paste the **campaign API token** into the Make module so each request hits the right campaign. See the Make integration page for the marketing-friendly overview.
-  </Step>
-  <Step title="Agent, Phone, Automation, then go live">
-    Finish **Agent**, **Phone number**, and **Automation**, then unpause when your technical sender is ready.
-  </Step>
-</Steps>
-
-## Security basics
-
-- Treat the webhook URL like a **password**. Anyone with it could create junk leads.
-- **Rotate the token** if it was pasted into the wrong chat or ticket.
-- Prefer **HTTPS** endpoints only (the app enforces this pattern).
-
-## Lead webhook: how the HTTP request works
-
-This is the **ingest** endpoint behind the URL you copy from **Source**. Your CRM, Make, or script should send **one lead per request**.
-
-### Request shape (always)
-
-| Part | Rule |
-| ---- | ---- |
-| Method | `POST` |
-| `Content-Type` | `application/json` |
-| URL | The full HTTPS address from the app, including `?token=…`. The token identifies the **campaign**; there is no separate header secret. |
-| Body | **One JSON object** — not an array, and **not** `{ "leads": [ … ] }`. |
-
-### Fields that are always required on the root object
-
-| Field | Meaning |
-| ----- | ------- |
-| `full_name` | String, non-empty after trim (max 500 characters). |
-| `email` | String, valid mailbox shape (single `@`, domain with a dot, no spaces; max 320 characters). |
-| `phone` **or** `phone_number` | String, non-empty; must be a phone SpeakLouder can normalise (use **international** form, e.g. `+48 123 456 789`). Only one of the two names is needed. |
-| `metadata` | Object (see below). If you omit it, the server treats it as `{}`. |
+This type is for teams that send leads programmatically.
 
 <Warning>
-  Never publish a real webhook URL or token in screenshots, tickets, or public docs. Treat it like a password.
+  This flow usually needs technical support, because it uses webhook URL, payload fields, and token security.
 </Warning>
 
-### Custom variables (`metadata`)
+## Business view
 
-In **Source**, the editor lets you define **extra keys** (and whether each is a **string** or **number**). Those keys are your campaign’s **schema** for `metadata`.
+- Your team still works in the same places, **Leady**, **Automatyzacja**, **Połączenia**.
+- Difference is only how leads enter campaign, through webhook instead of form or file.
 
-How it behaves:
+## If you are non technical
 
-1. **Names** — You type a label; the app stores a normalised key (lowercase, spaces → underscores). You **cannot** use reserved names: `full_name`, `email`, `phone`, `phone_number`, `metadata`, `leads`, `campaign_id`.
-2. **Exact match** — After you save the schema, every webhook body must send **`metadata` with exactly that set of keys** — same count, same names. Missing or extra keys → error `metadata keys do not match campaign schema`.
-3. **Types** — `string` fields must be JSON strings. `number` fields may be a JSON number **or** a numeric string (e.g. `"12.5"`); invalid numbers are rejected.
-4. **No custom keys** — If you saved an **empty** list of custom fields, you must still send `"metadata": {}` (empty object).
+Ask your implementation partner to configure webhook, then use the campaign normally.
 
-`metadata` may also be sent as a **JSON array** of `{ "key": "…", "value": … }` pairs; the server flattens that to an object before validation.
-
-### Example: no custom fields
-
-```json
-{
-  "full_name": "Jan Kowalski",
-  "email": "jan@example.com",
-  "phone_number": "+48 123 456 789",
-  "metadata": {}
-}
-```
-
-### Example: two custom string fields (`company_name`, `source_tag`)
-
-Assume those keys exist in the campaign schema as strings.
-
-```json
-{
-  "full_name": "Jan Kowalski",
-  "email": "jan@example.com",
-  "phone": "+48123456789",
-  "metadata": {
-    "company_name": "Acme Sp. z o.o.",
-    "source_tag": "webinar_marzec"
-  }
-}
-```
-
-### Example: custom number field (`lead_score`)
-
-If `lead_score` is configured as **number** in the app:
-
-```json
-{
-  "full_name": "Jan Kowalski",
-  "email": "jan@example.com",
-  "phone_number": "+48123456789",
-  "metadata": {
-    "lead_score": 42
-  }
-}
-```
-
-You can also send `"lead_score": "42"` as a string; it is accepted when the field is numeric.
-
-### Example `curl` (replace URL with yours from Source)
-
-```bash
-curl -sS -X POST "https://<your-host>/functions/v1/leads-webhook?token=<your-token>" \
-  -H "Content-Type: application/json" \
-  -d "{\"full_name\":\"Jan Kowalski\",\"email\":\"jan@example.com\",\"phone_number\":\"+48123456789\",\"metadata\":{}}"
-```
-
-The real host and token are **exactly** what the app shows when you open **Source** for that campaign.
-
-### Successful response
-
-HTTP **200** with JSON:
-
-```json
-{ "ok": true, "lead_id": "<uuid>" }
-```
-
-### Common errors (HTTP 400)
-
-The body includes an `"error"` string, for example:
-
-- `Body is not valid JSON` / `Body must be a single JSON object (one lead)`
-- `full_name must be a string` / `email must be a string` / `invalid phone number`
-- `metadata keys do not match campaign schema`
-- Batched `{ "leads": [...] }` is **not** supported — send **one object per POST**.
-
-Other status codes: **401** (missing or unknown token), **413** (body too large), **429** (too many creates in a short window for that campaign — wait and retry).
-
-### Limits (good to know for integrators)
-
-- Entire JSON body is capped at about **512 KB**.
-- Rough per-field caps include: `full_name` 500, `email` 320, phone input 64 characters, up to **250** metadata entries, long string values up to **12 000** characters per string field.
-- A **rate limit** applies per campaign (on the order of **60 new leads per 60 seconds**); bursts above that may get **429** with a retry hint.
-
-### Paused campaigns
-
-The lead can still be **created** (you get `ok` and `lead_id`), but **automation** for new leads may stay idle until the campaign is **not paused**. Unpause when you are ready for follow-up to run.
-
-## Related reading
-
-<Card title="Make.com integration" icon="plug" href="/integrations/make">
-  Installing the app in Make and using the campaign token.
-</Card>
+<img src="/images/app-kampania-automatyzacja.png" alt="Campaign automation view used after webhook is configured" />

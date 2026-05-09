@@ -1,51 +1,15 @@
 ---
-title: Shopify abandoned cart campaigns
-description: Campaigns that receive abandoned-checkout events from Shopify Flow into SpeakLouder.
+title: Campaign type, Shopify abandoned cart
+description: Campaign setup for Shopify abandoned cart follow up.
 ---
 
-This type is labelled **Shopify, abandoned carts** (`Shopify, porzucone koszyki`). It is for **Shopify merchants** who want SpeakLouder to follow up when someone **leaves items in the cart** without finishing checkout.
+Use this type if you want to call or message people after abandoned cart events.
 
-## When to choose this type
+## Setup path
 
-- You sell on **Shopify** and already use (or can install) **Shopify Flow**.
-- You want product names from the abandoned cart to appear in **one field** the assistant can read (in the product this is prepared as **`product_names`**, a comma-separated list—no manual schema work).
+1. Create campaign for Shopify flow.
+2. Connect Shopify source according to your account setup.
+3. Set workflow timing and call strategy.
+4. Monitor results in **Leady** and **Połączenia**.
 
-## How it works (simple picture)
-
-1. Shopify Flow runs when your **abandoned checkout** trigger fires.
-2. Flow sends the payload to the **webhook URL** SpeakLouder shows for this campaign.
-3. A lead is created with the **product list** and your automation handles calls or SMS.
-
-## Configuration checklist
-
-<Steps>
-  <Step title="Create the Shopify-type campaign">
-    **My campaigns** → **New campaign** → **Shopify, abandoned carts**.
-  </Step>
-  <Step title="Install Shopify Flow (if needed)">
-    From the Shopify admin, install **Flow** from the Shopify App Store, then open Flow like any other admin app.
-  </Step>
-  <Step title="Import the SpeakLouder Flow template">
-    In the campaign, open **Source** (`Źródło`). The in-app guide explains how to **download the `.flow` template** SpeakLouder provides and **import** it into Shopify Flow, then point the **action** at your campaign webhook URL.
-  </Step>
-  <Step title="Copy the webhook from Source">
-    Still on **Source**, **copy the webhook URL** shown for this campaign into the Flow action that sends data out. If the URL is empty, your technical contact should verify environment configuration; the UI will normally show a ready-to-copy address.
-  </Step>
-  <Step title="Test with a real abandoned checkout">
-    Run a controlled test: abandon a cart in a **development** or **staging** store if you have one, confirm a lead appears under **Leads**, then review **Automation** history.
-  </Step>
-  <Step title="Agent, Phone, Automation">
-    Describe in **Agent** how the assistant should talk about **multiple products** when `product_names` lists several items. Finish **Phone number** and **Automation** before enabling traffic.
-  </Step>
-</Steps>
-
-## Operational notes
-
-- **Product names** arrive together in one field; design scripts so the assistant does not read an unrealistically long list in one breath—your team can summarize or trim in Flow if needed.
-- Keep **test** and **production** campaigns separate so test checkouts do not call real customers.
-
-## Related reading
-
-<Card title="HTTP / Make campaigns" icon="webhook" href="/campaigns/dynamic-webhook">
-  Similar webhook ideas if you extend beyond the Shopify template.
-</Card>
+<img src="/images/app-moje-kampanie.png" alt="Campaign list with different campaign types" />

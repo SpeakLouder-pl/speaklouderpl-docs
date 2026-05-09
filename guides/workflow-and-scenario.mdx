@@ -1,82 +1,45 @@
 ---
 title: Workflow and scenario
-description: How the per-campaign automation path works — modules, waits, editor, and limits.
+description: How to set call timing, modules, and actions after a call.
 ---
 
-Each campaign has **one linear automation path** (a **scenario**). Leads move through **Start → middle steps → End** with **waits** between steps. You configure it under **Automatyzacja** in the campaign menu.
+## Where to edit workflow
 
-## Automation page (before editing)
+Open campaign, then **Automatyzacja**, then **Edytuj scenariusz**.
 
-On **Automatyzacja** you see:
+<img src="/images/app-kampania-automatyzacja.png" alt="Automation page in campaign" />
 
-- **Preview** — a short read-only list of steps (Start, waits, calls/SMS/email, End).
-- **Calling hours** — allowed window for outbound actions (save with **Zapisz okno**).
-- **Post-call webhook** — optional HTTPS callback after a call where the lead spoke (separate from Make inbound leads).
+## Scenario editor
 
-<img src="/images/app-kampania-automatyzacja.png" alt="Campaign Automation: preview list, calling hours, post-call webhook section" />
+The editor has two areas:
 
-Use **Historia & Zaplanowane** for run history and scheduled actions. The blue **Edytuj scenariusz** button opens the visual editor (overlay).
+- left side, scenario path,
+- right side, settings for selected module.
 
-## Scenario editor layout
+<img src="/images/app-scenariusz-edytor.png" alt="Scenario editor view" />
 
-After **Edytuj scenariusz**, the **Scenariusz** overlay shows:
+## Main modules
 
-- **Canvas (left)** — vertical flow: **Start** (one per scenario), **middle modules**, **Koniec** (one per scenario). **Segments** between blocks show **how long the system waits** before the next step (seconds, minutes, hours, or days — within product limits).
-- **Toolbar** — **Fit view**, **Save scenario**, **Close**, zoom.
-- **Right panel** — empty until you select a **module** or click a **wait segment** between modules (hint text explains this).
+- **Start**, fixed start point.
+- **Połączenie**, call step.
+- **SMS**, text message step.
+- **Koniec**, fixed end point.
 
-<img src="/images/app-scenariusz-edytor.png" alt="Scenario editor: Start, Połączenie, Koniec on canvas; details panel empty until selection" />
+## After call settings
 
-## Modules you can add
+When you select **Połączenie**, you can set:
 
-Use **+ Dodaj moduł** at the bottom of the canvas. The menu offers:
+- phase name,
+- SMS after call,
+- action after call, for example transfer or summary email.
 
-| Module (UI) | Role |
-| ----------- | ---- |
-| **Połączenie** | Outbound **voice call** for this phase. What the assistant **says** is configured under **Agent** (outgoing call). |
-| **SMS** | Sends an **SMS** in this step; you edit body and placeholders in the right panel. |
-| **E-mail** | **Planned** in the product roadmap; when available, it will send an email step from the scenario. |
+<img src="/images/app-scenariusz-polaczenie-panel.png" alt="Call module settings in right panel" />
 
-**Start** and **Koniec** are fixed ends of the path; you do not add them from the menu.
+## Good practice
 
-## Waits between steps
+Start simple:
 
-Each arrow between two modules has a **delay** (shown on the canvas, e.g. “10 sek.” or “5 min”). That is how long the system waits after the previous step **completes** before starting the next. Delays can range from **immediate (0)** up to **5 days** per segment.
-
-## Selecting **Połączenie** — right panel
-
-Click a **Połączenie** card (e.g. **Faza 1**). The right panel is the **inspector** for that call phase:
-
-- **Phase name** — label shown in the app and timeline (e.g. “Faza 1” or a custom name).
-- **Note** — the **outbound call script** is edited under **Agent**, not here.
-- **SMS after answered call** (optional) — if enabled, an SMS may be sent **after** the call when the product treats the lead as sufficiently interested (voicemail / low-interest calls are skipped per the on-screen explanation).
-- **Action after call** — e.g. **transfer to a number + email summary**, or **email summary only**; fields depend on the option (transfer number format, summary email).
-- **Advanced** — extra options when your campaign exposes them.
-- **Save** / **Delete module** — apply changes or remove this step.
-
-<img src="/images/app-scenariusz-polaczenie-panel.png" alt="Połączenie selected: right panel with phase name, SMS toggle, action after call" />
-
-## Selecting **SMS** or **E-mail**
-
-When you select an **SMS** module, the right panel includes **message body**, character limits, and **ASCII** handling for SMS (Polish diacritics are normalised as the product explains). **E-mail** steps will expose **subject** and **body** when that module is fully available.
-
-## Limits (what the editor enforces)
-
-These are the main guardrails you may hit while editing:
-
-- **Maximum ~40 nodes** on the canvas (including Start and End).
-- **At most 4 × Połączenie** modules — aligned with outbound call attempt limits for no-answer follow-up.
-- **SMS body** — up to **160 characters** after normalisation (single GSM segment style).
-- **Phase name** — up to **80 characters**.
-
-If save is blocked, the app shows a short message (for example too many **Połączenie** blocks or missing required middle steps).
-
-## Saving and closing
-
-Use **Zapisz scenariusz** to persist the graph. **Zamknij** leaves the overlay without discarding already saved work; if you made edits, save first.
-
-## Related topics
-
-- [Screen map](/screen-map) — where **Automatyzacja** sits in the campaign menu.
-- [How it fits together](/how-it-works) — lead → scenario → call/SMS in plain language.
-- [Make.com](/integrations/make) — inbound leads and post-call webhooks to external tools.
+1. one call step,
+2. one delay,
+3. optional SMS,
+4. save and test.
