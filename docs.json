@@ -12,7 +12,10 @@
     "default": "light",
     "strict": false
   },
-  "favicon": "/images/favicon.ico",
+  "favicon": {
+    "light": "/images/logobox.png",
+    "dark": "/images/logobox.png"
+  },
   "logo": {
     "light": "/images/logobox.png",
     "dark": "/images/logobox.png",
