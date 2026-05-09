@@ -17,8 +17,8 @@
     "dark": "/images/logobox.png"
   },
   "logo": {
-    "light": "/images/logobox.png",
-    "dark": "/images/logobox.png",
+    "light": "/images/logovertical.png",
+    "dark": "/images/logovertical.png",
     "href": "https://app.speaklouder.pl"
   },
   "navigation": {
