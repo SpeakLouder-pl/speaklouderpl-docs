@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "SpeakLouder",
-  "description": "Help center for SpeakLouder.",
+  "description": "Centrum pomocy SpeakLouder.",
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
@@ -33,12 +33,12 @@
     },
     "languages": [
       {
-        "language": "en",
+        "language": "pl",
         "default": true,
         "navbar": {
           "primary": {
             "type": "button",
-            "label": "Open app",
+            "label": "Otwórz aplikację",
             "href": "https://app.speaklouder.pl"
           }
         },
@@ -52,16 +52,16 @@
             ]
           },
           {
-            "group": "Daily work",
+            "group": "Codzienna praca",
             "pages": [
               "screen-map",
-              "guides/lead-panel",
-              "guides/workflow-and-scenario",
+              "guides/panel-leada",
+              "guides/workflow-i-scenariusz",
               "credits"
             ]
           },
           {
-            "group": "Campaign setup",
+            "group": "Ustawienie kampanii",
             "pages": [
               "campaigns/meta-forms",
               "campaigns/static-csv",
@@ -70,7 +70,7 @@
             ]
           },
           {
-            "group": "Integrations",
+            "group": "Integracje",
             "pages": [
               "integrations/meta-leads",
               "integrations/make",
@@ -80,11 +80,11 @@
         ]
       },
       {
-        "language": "pl",
+        "language": "en",
         "navbar": {
           "primary": {
             "type": "button",
-            "label": "Otwórz aplikację",
+            "label": "Open app",
             "href": "https://app.speaklouder.pl"
           }
         },
@@ -92,41 +92,71 @@
           {
             "group": "Start",
             "pages": [
-              "pl/index",
-              "pl/quickstart",
-              "pl/how-it-works"
+              "en/index",
+              "en/quickstart",
+              "en/how-it-works"
             ]
           },
           {
-            "group": "Codzienna praca",
+            "group": "Daily work",
             "pages": [
-              "pl/screen-map",
-              "pl/guides/panel-leada",
-              "pl/guides/workflow-i-scenariusz",
-              "pl/credits"
+              "en/screen-map",
+              "en/guides/lead-panel",
+              "en/guides/workflow-and-scenario",
+              "en/credits"
             ]
           },
           {
-            "group": "Ustawienie kampanii",
+            "group": "Campaign setup",
             "pages": [
-              "pl/campaigns/meta-forms",
-              "pl/campaigns/static-csv",
-              "pl/campaigns/shopify-abandoned-cart",
-              "pl/campaigns/dynamic-webhook"
+              "en/campaigns/meta-forms",
+              "en/campaigns/static-csv",
+              "en/campaigns/shopify-abandoned-cart",
+              "en/campaigns/dynamic-webhook"
             ]
           },
           {
-            "group": "Integracje",
+            "group": "Integrations",
             "pages": [
-              "pl/integrations/meta-leads",
-              "pl/integrations/make",
-              "pl/integrations/gmail"
+              "en/integrations/meta-leads",
+              "en/integrations/make",
+              "en/integrations/gmail"
             ]
           }
         ]
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/pl",
+      "destination": "/"
+    },
+    {
+      "source": "/pl/",
+      "destination": "/"
+    },
+    {
+      "source": "/pl/:path*",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/guides/lead-panel",
+      "destination": "/en/guides/lead-panel"
+    },
+    {
+      "source": "/guides/lead-panel/",
+      "destination": "/en/guides/lead-panel"
+    },
+    {
+      "source": "/guides/workflow-and-scenario",
+      "destination": "/en/guides/workflow-and-scenario"
+    },
+    {
+      "source": "/guides/workflow-and-scenario/",
+      "destination": "/en/guides/workflow-and-scenario"
+    }
+  ],
   "navbar": {
     "links": []
   },
