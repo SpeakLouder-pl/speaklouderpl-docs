@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "SpeakLouder",
-  "description": "SpeakLouder help center.",
+  "description": "Centrum pomocy SpeakLouder.",
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
@@ -21,144 +21,57 @@
     "dark": "/images/logovertical.png",
     "href": "https://app.speaklouder.pl"
   },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Otwórz aplikację",
+      "href": "https://app.speaklouder.pl"
+    },
+    "links": []
+  },
   "navigation": {
     "global": {
       "anchors": [
         {
-          "anchor": "App",
+          "anchor": "Aplikacja",
           "href": "https://app.speaklouder.pl",
           "icon": "arrow-up-right-from-square"
         }
       ]
     },
-    "languages": [
+    "groups": [
       {
-        "language": "en",
-        "default": true,
-        "navbar": {
-          "primary": {
-            "type": "button",
-            "label": "Open app",
-            "href": "https://app.speaklouder.pl"
-          }
-        },
-        "groups": [
-          {
-            "group": "Start",
-            "pages": [
-              "index",
-              "quickstart",
-              "how-it-works"
-            ]
-          },
-          {
-            "group": "Daily work",
-            "pages": [
-              "screen-map",
-              "guides/lead-panel",
-              "guides/workflow-and-scenario",
-              "credits"
-            ]
-          },
-          {
-            "group": "Campaign setup",
-            "pages": [
-              "campaigns/meta-forms",
-              "campaigns/static-csv",
-              "campaigns/shopify-abandoned-cart",
-              "campaigns/dynamic-webhook"
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "integrations/meta-leads",
-              "integrations/make",
-              "integrations/gmail"
-            ]
-          }
+        "group": "Start",
+        "pages": [
+          "index",
+          "quickstart",
+          "how-it-works",
+          "dashboard"
         ]
       },
       {
-        "language": "pl",
-        "navbar": {
-          "primary": {
-            "type": "button",
-            "label": "Otwórz aplikację",
-            "href": "https://app.speaklouder.pl"
-          }
-        },
-        "groups": [
-          {
-            "group": "Start",
-            "pages": [
-              "pl/index",
-              "pl/quickstart",
-              "pl/how-it-works"
-            ]
-          },
-          {
-            "group": "Codzienna praca",
-            "pages": [
-              "pl/screen-map",
-              "pl/guides/panel-leada",
-              "pl/guides/workflow-i-scenariusz",
-              "pl/credits"
-            ]
-          },
-          {
-            "group": "Ustawienie kampanii",
-            "pages": [
-              "pl/campaigns/meta-forms",
-              "pl/campaigns/static-csv",
-              "pl/campaigns/shopify-abandoned-cart",
-              "pl/campaigns/dynamic-webhook"
-            ]
-          },
-          {
-            "group": "Integracje",
-            "pages": [
-              "pl/integrations/meta-leads",
-              "pl/integrations/make",
-              "pl/integrations/gmail"
-            ]
-          }
+        "group": "Kampanie",
+        "pages": [
+          "kampanie/index",
+          "kampanie/pierwsze-kroki",
+          "kampanie/agent",
+          "kampanie/workflow",
+          "kampanie/leady",
+          "kampanie/aktywnosc",
+          "kampanie/numer-telefonu",
+          "kampanie/ustawienia"
+        ]
+      },
+      {
+        "group": "Konto",
+        "pages": [
+          "numery-telefonow",
+          "integracje",
+          "credits",
+          "ustawienia-konta"
         ]
       }
     ]
-  },
-  "redirects": [
-    {
-      "source": "/en",
-      "destination": "/"
-    },
-    {
-      "source": "/en/",
-      "destination": "/"
-    },
-    {
-      "source": "/en/:path*",
-      "destination": "/:path*"
-    },
-    {
-      "source": "/guides/panel-leada",
-      "destination": "/pl/guides/panel-leada"
-    },
-    {
-      "source": "/guides/panel-leada/",
-      "destination": "/pl/guides/panel-leada"
-    },
-    {
-      "source": "/guides/workflow-i-scenariusz",
-      "destination": "/pl/guides/workflow-i-scenariusz"
-    },
-    {
-      "source": "/guides/workflow-i-scenariusz/",
-      "destination": "/pl/guides/workflow-i-scenariusz"
-    }
-  ],
-  "navbar": {
-    "links": []
   },
   "footer": {
     "socials": {}

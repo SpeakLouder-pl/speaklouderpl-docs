@@ -1,0 +1,44 @@
+---
+title: "Workflow"
+description: "Sekwencja kontaktów, harmonogram i automatyczne działania po rozmowie."
+---
+
+Zakładka **Workflow** (nagłówek strony: "Przepływ pracy") to miejsce, gdzie ustawiasz, kiedy i ile razy agent próbuje dodzwonić się do leada, oraz co dzieje się automatycznie po rozmowie.
+
+{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/workflow — widok od góry strony, sekcje Sekwencja kontaktów i Harmonogram połączeń widoczne */}
+<img src="/images/workflow-gora.png" alt="Zakładka Workflow: sekwencja kontaktów i harmonogram połączeń" />
+
+## Sekwencja kontaktów
+
+Domyślna sekwencja to kroki wykonywane po kolei dla każdego leada, np.:
+
+1. **Pierwszy kontakt** — pierwsze połączenie agenta.
+2. **Przypomnienie SMS** — SMS, jeśli lead nie odebrał.
+3. **Druga próba** — kolejne połączenie.
+
+Przycisk **Edytuj sekwencję** pozwala zmienić kolejność, dodać albo usunąć kroki.
+
+## Harmonogram połączeń
+
+Ustawiasz okno czasowe (np. 07:00–10:00) oraz dni tygodnia, w których agent może dzwonić do leadów. Połączenia poza tym oknem się nie odbywają.
+
+## Automatyzacje po rozmowie
+
+{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/workflow — przewinięte do sekcji SMS po zakwalifikowaniu / E-mail po zakwalifikowaniu / Transfer do handlowca, z rozwiniętym (kliknięta strzałka) wierszem "SMS po zakwalifikowaniu" pokazującym treść wiadomości */}
+<img src="/images/workflow-automatyzacje.png" alt="Sekcje SMS, e-mail i transfer do handlowca w zakładce Workflow" />
+
+| Ustawienie | Działanie |
+| --- | --- |
+| **SMS po zakwalifikowaniu** | Automatyczny SMS do leada, gdy agent uzna go za zainteresowanego |
+| **E-mail po zakwalifikowaniu** | Spersonalizowany e-mail follow-up po zakwalifikowaniu leada |
+| **Transfer do handlowca** | Przekazanie żywej rozmowy do handlowca w trakcie połączenia |
+
+Każde z tych ustawień włączasz i wyłączasz przełącznikiem, a rozwinięcie wiersza (strzałka po lewej) pokazuje szczegółową konfigurację (np. treść SMS-a).
+
+## Zaawansowane: własny warunek kwalifikacji
+
+Domyślnie agent sam ocenia, czy lead jest zainteresowany. W sekcji "Zaawansowane" możesz opisać własnymi słowami, kiedy lead ma zostać uznany za zakwalifikowanego — agent uwzględni ten warunek przy ocenie rozmowy.
+
+<Note>
+Zmiany w sekwencji i harmonogramie dotyczą wszystkich przyszłych połączeń w tej kampanii — nie wpływają wstecz na leady, do których agent już zadzwonił.
+</Note>
