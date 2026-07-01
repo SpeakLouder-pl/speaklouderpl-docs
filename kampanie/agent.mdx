@@ -1,56 +1,44 @@
 ---
 title: "Agent"
-description: "Głos, prompt i zachowanie agenta AI podczas rozmów."
+description: "Głos i sposób, w jaki agent rozmawia z leadami."
 ---
 
-Zakładka **Agent** to serce kampanii — tu ustawiasz, jak agent brzmi i co mówi. Przy nowo utworzonej kampanii najpierw zobaczysz ekran startowy z kreatorem.
+W zakładce **Agent** ustawiasz, jak agent brzmi i co mówi. To najważniejsza część kampanii.
 
-## Kreator konfiguracji (dla nowej kampanii)
+## Konfiguracja krok po kroku (nowa kampania)
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/agent — świeżo utworzona kampania, ekran "Skonfigurujmy Twojego agenta" przed kliknięciem "Zacznij konfigurację" */}
-<img src="/images/agent-onboarding-start.png" alt="Ekran startowy konfiguracji agenta w nowej kampanii" />
+W nowej kampanii agent nie jest jeszcze skonfigurowany. Zamiast pustych pól dostajesz kreatora:
 
-Kliknięcie **Zacznij konfigurację** uruchamia kreator złożony z 14 krótkich pytań o Twoją firmę i ofertę (np. "Jak nazywa się Twoja firma i czym się zajmuje?", "Co sprzedajesz i jaka jest cena / model sprzedaży?").
+<img src="/images/agent-onboarding-start.png" alt="Ekran startowy konfiguracji agenta" />
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/agent — w trakcie kreatora, "Pytanie 1 z 14" widoczne u góry, pole tekstowe puste */}
-<img src="/images/agent-onboarding-pytanie.png" alt="Kreator konfiguracji agenta — jedno z 14 pytań" />
+Kliknij **Zacznij konfigurację** i odpowiedz na kilkanaście krótkich pytań o Twoją firmę i ofertę (np. czym się zajmujesz, co sprzedajesz).
 
-Na podstawie odpowiedzi AI przygotowuje gotowy prompt i pierwsze wypowiedzi agenta dla połączeń przychodzących i wychodzących. Jeśli wolisz pominąć pytania i ustawić wszystko ręcznie, kliknij **Pomiń i skonfiguruj ręcznie** w prawym górnym rogu.
+<img src="/images/agent-onboarding-pytanie.png" alt="Kreator konfiguracji agenta — jedno z pytań" />
+
+Na tej podstawie AI samo napisze instrukcje (prompt) i pierwsze zdania agenta. Wolisz wpisać wszystko ręcznie? Kliknij **Pomiń i skonfiguruj ręcznie** w prawym górnym rogu.
 
 ## Widok po konfiguracji
 
-Gdy agent jest już skonfigurowany (przez kreator albo ręcznie), zakładka wygląda tak:
+<img src="/images/agent-skonfigurowany.png" alt="Zakładka Agent po konfiguracji" />
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/agent — kampania z już skonfigurowanym agentem (np. "Demo"), widok od góry strony */}
-<img src="/images/agent-skonfigurowany.png" alt="Zakładka Agent po konfiguracji: głos, prompt, oddzwanianie, narzędzia" />
+Znajdziesz tu:
 
-| Sekcja | Co ustawiasz |
-| --- | --- |
-| **Głos** | Głos, którym agent rozmawia z leadami — patrz niżej |
-| **Konfiguracja promptu** | Treść instrukcji dla agenta, osobno dla połączeń wychodzących i przychodzących |
-| **Oddzwanianie** | Czy agent sam oddzwoni, jeśli klient poprosi o kontakt w innym terminie |
-| **Narzędzia** | Dostęp agenta do kalendarza, żeby mógł umawiać spotkania w rozmowie |
-| **Baza wiedzy** | Dokumenty, z których agent korzysta w rozmowie — oznaczone jako "Wkrótce" |
+- **Głos** — jak brzmi agent (patrz niżej).
+- **Konfiguracja promptu** — instrukcje dla agenta; **Zarządzaj** otwiera pełny edytor.
+- **Oddzwanianie** — gdy włączone, a klient poprosi o kontakt w innym terminie, agent sam zaplanuje oddzwonienie.
+- **Narzędzia** — podłączony kalendarz pozwala agentowi umawiać spotkania w trakcie rozmowy (kalendarz łączysz w [Integracjach](/integracje)).
+- **Baza wiedzy** — dokumenty dla agenta; *wkrótce*.
 
-Na górze strony masz też trzy przyciski: **Testuj agenta** (rozmowa testowa w przeglądarce), **Wyślij połączenie** (agent dzwoni na wskazany numer) i **Zarządzaj promptem** (pełny edytor treści promptu).
+Na górze masz też **Testuj agenta** (rozmowa w przeglądarce, bez kosztów) i **Wyślij połączenie** (agent dzwoni na podany numer).
 
 ## Wybór głosu
 
-Kliknięcie **Zmień** przy sekcji Głos otwiera listę dostępnych głosów z próbką audio do odsłuchania.
+Kliknij **Zmień** przy sekcji Głos:
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/agent — otwarty modal "Wybierz głos agenta" po kliknięciu "Zmień" przy sekcji Głos */}
-<img src="/images/agent-wybor-glosu.png" alt="Modal wyboru głosu agenta z trzema opcjami" />
+<img src="/images/agent-wybor-glosu.png" alt="Modal wyboru głosu agenta" />
 
-Każdy głos ma krótki opis charakteru (np. "Ciepły, wyrazisty głos na codzienne rozmowy") — wybierz próbkę, odsłuchaj i zapisz przyciskiem **Zapisz głos**.
+Odsłuchaj próbki, wybierz głos i kliknij **Zapisz głos**.
 
-## Oddzwanianie
-
-Gdy ta opcja jest włączona, a klient podczas rozmowy poprosi o kontakt w innym terminie, agent sam zaplanuje i wykona oddzwonienie — nie trzeba nic ustawiać ręcznie w workflow.
-
-## Narzędzia i kalendarz
-
-Podłączenie kalendarza (Cal.com) pozwala agentowi umawiać spotkania wprost podczas rozmowy. Kalendarz podłącza się w [Integracjach](/integracje).
-
-<Note>
-Baza wiedzy (dodawanie dokumentów, z których agent korzysta w rozmowie) jest oznaczona jako "Wkrótce" i nie jest jeszcze dostępna.
-</Note>
+<Tip>
+Zanim ruszysz z prawdziwymi leadami, kliknij **Testuj agenta** i przeprowadź próbną rozmowę — najszybciej wychwycisz, co poprawić w instrukcjach.
+</Tip>

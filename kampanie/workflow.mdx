@@ -1,44 +1,35 @@
 ---
 title: "Workflow"
-description: "Sekwencja kontaktów, harmonogram i automatyczne działania po rozmowie."
+description: "Kiedy agent dzwoni i co dzieje się automatycznie po rozmowie."
 ---
 
-Zakładka **Workflow** (nagłówek strony: "Przepływ pracy") to miejsce, gdzie ustawiasz, kiedy i ile razy agent próbuje dodzwonić się do leada, oraz co dzieje się automatycznie po rozmowie.
+Zakładka **Workflow** (na ekranie: „Przepływ pracy") to scenariusz kampanii: kiedy i ile razy agent próbuje się dodzwonić oraz co robi automatycznie po rozmowie.
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/workflow — widok od góry strony, sekcje Sekwencja kontaktów i Harmonogram połączeń widoczne */}
-<img src="/images/workflow-gora.png" alt="Zakładka Workflow: sekwencja kontaktów i harmonogram połączeń" />
+<img src="/images/workflow-gora.png" alt="Workflow: sekwencja kontaktów i harmonogram połączeń" />
 
 ## Sekwencja kontaktów
 
-Domyślna sekwencja to kroki wykonywane po kolei dla każdego leada, np.:
-
-1. **Pierwszy kontakt** — pierwsze połączenie agenta.
-2. **Przypomnienie SMS** — SMS, jeśli lead nie odebrał.
-3. **Druga próba** — kolejne połączenie.
-
-Przycisk **Edytuj sekwencję** pozwala zmienić kolejność, dodać albo usunąć kroki.
+Lista kroków wykonywanych po kolei dla każdego leada — np. połączenie, potem SMS, potem kolejna próba. Kliknij **Edytuj sekwencję**, żeby zmienić kolejność, dodać lub usunąć kroki.
 
 ## Harmonogram połączeń
 
-Ustawiasz okno czasowe (np. 07:00–10:00) oraz dni tygodnia, w których agent może dzwonić do leadów. Połączenia poza tym oknem się nie odbywają.
+Ustawiasz **godziny** i **dni tygodnia**, w których agent może dzwonić. Poza tym oknem połączenia się nie odbywają.
 
 ## Automatyzacje po rozmowie
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/workflow — przewinięte do sekcji SMS po zakwalifikowaniu / E-mail po zakwalifikowaniu / Transfer do handlowca, z rozwiniętym (kliknięta strzałka) wierszem "SMS po zakwalifikowaniu" pokazującym treść wiadomości */}
-<img src="/images/workflow-automatyzacje.png" alt="Sekcje SMS, e-mail i transfer do handlowca w zakładce Workflow" />
+<img src="/images/workflow-automatyzacje.png" alt="SMS, e-mail i transfer do handlowca w Workflow" />
 
-| Ustawienie | Działanie |
-| --- | --- |
-| **SMS po zakwalifikowaniu** | Automatyczny SMS do leada, gdy agent uzna go za zainteresowanego |
-| **E-mail po zakwalifikowaniu** | Spersonalizowany e-mail follow-up po zakwalifikowaniu leada |
-| **Transfer do handlowca** | Przekazanie żywej rozmowy do handlowca w trakcie połączenia |
+Każdą włączasz przełącznikiem, a po rozwinięciu wiersza ustawiasz szczegóły (np. treść SMS z gotowymi zmiennymi typu `{{full_name}}`):
 
-Każde z tych ustawień włączasz i wyłączasz przełącznikiem, a rozwinięcie wiersza (strzałka po lewej) pokazuje szczegółową konfigurację (np. treść SMS-a).
+- **SMS po zakwalifikowaniu** — automatyczny SMS, gdy agent uzna leada za zainteresowanego.
+- **E-mail po zakwalifikowaniu** — spersonalizowany e-mail follow-up (wymaga [podłączonego Gmaila](/integracje)).
+- **Transfer do handlowca** — przekazanie rozmowy na żywo do handlowca w trakcie połączenia.
 
-## Zaawansowane: własny warunek kwalifikacji
+## Zaawansowane
 
-Domyślnie agent sam ocenia, czy lead jest zainteresowany. W sekcji "Zaawansowane" możesz opisać własnymi słowami, kiedy lead ma zostać uznany za zakwalifikowanego — agent uwzględni ten warunek przy ocenie rozmowy.
+- **Własny warunek zakwalifikowania** — opisz własnymi słowami, kiedy lead ma być uznany za zainteresowanego; agent użyje tego zamiast domyślnej oceny.
+- **Webhook po połączeniu** — po każdej rozmowie wysyła jej dane do zewnętrznego systemu (Make, Zapier, własny CRM) przez HTTP POST.
 
 <Note>
-Zmiany w sekwencji i harmonogramie dotyczą wszystkich przyszłych połączeń w tej kampanii — nie wpływają wstecz na leady, do których agent już zadzwonił.
+Zmiany w sekwencji i harmonogramie działają na przyszłe połączenia — nie cofają tego, co agent już zrobił.
 </Note>

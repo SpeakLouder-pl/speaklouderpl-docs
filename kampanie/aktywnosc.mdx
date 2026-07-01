@@ -1,37 +1,29 @@
 ---
 title: "Aktywność"
-description: "Połączenia z transkrypcją oraz pełny dziennik akcji kampanii."
+description: "Połączenia z transkrypcją oraz pełna historia kampanii."
 ---
 
-Sekcja **Aktywność** w menu kampanii ma dwie zakładki: **Połączenia** i **Dziennik akcji**.
+Sekcja **Aktywność** ma dwie zakładki: **Połączenia** i **Dziennik akcji**.
 
 ## Połączenia
 
-Widok dwukolumnowy: po lewej lista leadów z ostatnią rozmową, po prawej szczegóły zaznaczonego połączenia.
+Po lewej lista rozmów, po prawej szczegóły zaznaczonej.
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/activity/calls — kampania z kilkoma zakończonymi połączeniami (np. "SpeakLouder 1"), zaznaczone jedno połączenie z pełną transkrypcją po prawej */}
-<img src="/images/aktywnosc-polaczenia.png" alt="Zakładka Połączenia z listą leadów i transkrypcją rozmowy" />
+<img src="/images/aktywnosc-polaczenia.png" alt="Połączenia z listą rozmów i transkrypcją" />
 
-Listę po lewej filtrujesz zakładkami **Wszystkie / Zakwalifikowany / Niezakwalifikowany** oraz wyszukiwarką leada.
+Listę filtrujesz zakładkami **Wszystkie / Zakwalifikowany / Niezakwalifikowany** i wyszukiwarką. Dla wybranej rozmowy zobaczysz m.in.:
 
-Panel szczegółów po prawej pokazuje:
-
-- dane leada i numer telefonu,
-- kierunek rozmowy (wychodzące / przychodzące), status (odebrane / brak odpowiedzi) i procent zaufania rozpoznania mowy,
-- datę i godzinę połączenia,
-- akcje wykonane po kwalifikacji (np. "SMS wysłany", "E-mail wyłączony"),
-- **Podsumowanie** — streszczenie rozmowy wygenerowane przez AI,
-- **Transkrypcję** — pełny zapis rozmowy w formie dymków, osobno dla agenta i klienta.
+- kierunek (wychodzące/przychodzące) i wynik (odebrane / brak odpowiedzi),
+- akcje po kwalifikacji (np. „SMS wysłany"),
+- **Podsumowanie** — streszczenie rozmowy od AI,
+- **Transkrypcję** — pełny zapis w formie dymków agenta i klienta.
 
 ## Dziennik akcji
 
-Chronologiczna lista wszystkich zdarzeń w kampanii: połączenia, SMS-y, e-maile — każde z wynikiem (np. "Odebrane", "Brak odpowiedzi", "Wysłany") i dokładną datą.
+<img src="/images/aktywnosc-dziennik.png" alt="Dziennik akcji z historią połączeń i e-maili" />
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/activity/action-log — kampania z historią kilku różnych typów akcji (połączenia i e-mail), widok domyślny */}
-<img src="/images/aktywnosc-dziennik.png" alt="Dziennik akcji kampanii z historią połączeń i e-maili" />
-
-Filtr daty w prawym górnym rogu pozwala zawęzić dziennik do konkretnego dnia. Kliknięcie nazwiska leada w wierszu przenosi wprost do jego karty w CRM.
+Chronologiczna lista wszystkiego, co wydarzyło się w kampanii — połączenia, SMS-y, e-maile — każde z wynikiem i datą. Filtr daty w prawym górnym rogu zawęża widok do jednego dnia, a klik w nazwisko otwiera kartę leada.
 
 <Tip>
-Dziennik akcji to najszybszy sposób, żeby odpowiedzieć na pytanie "co działo się w tej kampanii wczoraj" — bez przeklikiwania się przez pojedyncze leady.
+Dziennik akcji to najszybsza odpowiedź na pytanie „co działo się w kampanii wczoraj" — bez przeklikiwania pojedynczych leadów.
 </Tip>
