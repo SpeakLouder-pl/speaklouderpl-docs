@@ -1,72 +1,75 @@
 ---
 title: "Leady"
-description: "Źródło leadów, lista CRM i karta pojedynczego leada."
+description: "Skąd napływają kontakty, lista CRM i karta pojedynczego leada."
 ---
 
-Sekcja **Leady** w menu kampanii ma dwie zakładki: **CRM** (lista kontaktów) i **Źródło** (skąd leady napływają).
+Sekcja **Leady** ma dwie części: **Źródło** (skąd napływają kontakty) i **CRM** (lista wszystkich leadów). Typ źródła wybierasz raz, przy tworzeniu kampanii — tutaj go konfigurujesz.
 
 ## Źródło
 
-Typ źródła wybiera się raz, przy tworzeniu kampanii (patrz [Twoja pierwsza kampania](/quickstart)) — tutaj go tylko konfigurujesz.
+<Tabs>
+<Tab title="CSV Upload">
+Wgrywasz gotową listę kontaktów z pliku.
 
-### Webhook HTTP
+<img src="/images/zrodlo-csv.png" alt="Import CSV — strefa upuszczania pliku" />
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/source — kampania typu HTTP Webhook, widok od góry z adresem webhooka i tokenem (token może być zamazany kropkami tak jak domyślnie w UI) */}
-<img src="/images/zrodlo-webhook.png" alt="Zakładka Źródło dla kampanii typu Webhook HTTP" />
+Przeciągnij plik CSV w pole albo kliknij **Przeglądaj pliki**. Po wgraniu dopasujesz kolumny z pliku do pól leada (imię, telefon, e-mail…).
 
-Aplikacja generuje unikalny adres URL z tokenem. Wystarczy skonfigurować dowolny zewnętrzny system (formularz na stronie, Make.com, Zapier, własny backend), żeby wysyłał żądanie POST z danymi leada na ten adres — token w adresie identyfikuje kampanię.
+<Tip>Zacznij od małego pliku testowego i sprawdź, czy kolumny dopasowały się dobrze, zanim wgrasz całą listę.</Tip>
+</Tab>
 
-W sekcji "Pola własne" możesz zdefiniować dodatkowe pola (np. nazwa produktu), które chcesz przekazywać agentowi razem z leadem. Sekcja "Wyślij testowy lead" pozwala wysłać przykładowe dane i sprawdzić, czy integracja działa — lead trafia realnie na listę.
+<Tab title="HTTP Webhook">
+Leady wpadają automatycznie z zewnętrznego systemu w czasie rzeczywistym.
 
-### CSV Upload
+<img src="/images/zrodlo-webhook.png" alt="Źródło typu Webhook HTTP z adresem i tokenem" />
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/source — kampania typu CSV Upload, widok strefy "Upuść plik CSV tutaj" przed wgraniem pliku */}
-<img src="/images/zrodlo-csv.png" alt="Zakładka Źródło dla kampanii typu CSV Upload" />
+Aplikacja generuje gotowy adres URL (z ukrytym tokenem, który identyfikuje Twoją kampanię). Ustaw dowolny system — formularz na stronie, Make.com, Zapier, własny backend — tak, aby wysyłał na ten adres żądanie POST z danymi leada. Przycisk **Integracja Make.com** ułatwia połączenie z Make.
 
-Przeciągnij plik CSV w wyznaczone pole albo kliknij **Przeglądaj pliki**. Po wgraniu aplikacja pozwala dopasować kolumny z pliku do pól leada (imię, telefon, e-mail itd.).
+W sekcji **Pola własne** dodajesz dodatkowe dane (np. nazwę produktu), które agent dostanie razem z leadem.
 
-<Tip>
-Zacznij od małego pliku testowego, sprawdź czy mapowanie kolumn jest poprawne, dopiero potem importuj cały właściwy plik.
-</Tip>
+<Warning>Adres zawiera Twój prywatny token — traktuj go jak hasło i nie udostępniaj publicznie.</Warning>
+</Tab>
 
-### Shopify
+<Tab title="Shopify">
+Dla sklepów na Shopify. Po podłączeniu agent automatycznie dzwoni do klientów, którzy **porzucili koszyk**, żeby przypomnieć o dokończeniu zakupu.
+</Tab>
 
-Dostępne dla sklepów na Shopify — po podłączeniu integracji agent automatycznie dzwoni do klientów, którzy porzucili koszyk, żeby przypomnieć o dokończeniu zakupu.
-
-### Meta Forms
-
-Import leadów wprost z reklam typu "formularz kontaktowy" na Facebooku i Instagramie. W obecnej wersji aplikacji ta opcja jest oznaczona jako **Wkrótce** i nie jest jeszcze dostępna.
+<Tab title="Meta Forms">
+Import leadów z reklam typu formularz kontaktowy na Facebooku i Instagramie. Ta opcja jest oznaczona jako **Wkrótce** i nie jest jeszcze dostępna.
+</Tab>
+</Tabs>
 
 ## CRM
 
-Lista wszystkich leadów w danej kampanii, z wyszukiwarką, filtrowaniem i sortowaniem.
+Lista wszystkich leadów w kampanii, z wyszukiwarką, filtrowaniem i sortowaniem.
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/leads — kampania z kilkoma leadami o różnych statusach (np. "SpeakLouder 1"), widok listy CRM */}
 <img src="/images/crm-lista.png" alt="Lista leadów w CRM ze statusami" />
 
-Każdy wiersz pokazuje imię i nazwisko, status (**Zakwalifikowany**, **Niezakwalifikowany**, **Bez kontaktu**), liczbę połączeń i datę ostatniej aktywności. Kliknięcie wiersza otwiera kartę leada.
+Każdy wiersz to jeden lead: imię i nazwisko, **status**, liczba połączeń i data ostatniej aktywności. Statusy:
+
+- 🟢 **Zakwalifikowany** — agent uznał, że jest zainteresowany.
+- 🔴 **Niezakwalifikowany** — rozmowa odbyła się, ale bez zainteresowania.
+- 🟡 **Bez kontaktu** — nie udało się porozmawiać (brak odpowiedzi).
+
+Kliknij wiersz, żeby otworzyć kartę leada.
 
 ## Karta leada
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/leads/{leadId} — karta leada z zakładką "Pulpit" aktywną, lead z co najmniej jednym połączeniem i wypełnioną analizą AI */}
 <img src="/images/lead-karta-pulpit.png" alt="Karta leada, zakładka Pulpit z analizą AI" />
 
-Po lewej stronie karty leada znajdziesz dane kontaktowe (e-mail, telefon, data dodania), tagi oraz pasek **Zainteresowanie leada** (wynik 0–100 wystawiony przez AI na podstawie rozmów). Po prawej — statystyki (liczba połączeń, SMS-ów, e-maili) i skrót ostatnich akcji.
+Po lewej dane kontaktowe, tagi i pasek **Zainteresowanie leada** (ocena 0–100 wystawiana przez AI po rozmowach). Po prawej statystyki i ostatnie akcje. Na górze szybkie akcje: **Notatka**, **Email**, **Zadzwoń**, **Więcej** (m.in. zmiana statusu).
 
-Środkowa część karty ma cztery zakładki:
+W środku cztery zakładki:
 
-| Zakładka | Zawartość |
-| --- | --- |
-| **Pulpit** | Analiza AI ostatniej rozmowy i miejsce na własne notatki |
-| **Dane** | Wszystkie pola leada, w tym pola własne ze źródła |
-| **Sekwencja** | Status każdego kroku sekwencji kampanii dla tego leada (odebrane, anulowane, zaplanowane) oraz połączenia wykonane ręcznie, poza sekwencją |
-| **Wysłane emaile** | Historia e-maili follow-up wysłanych do leada |
+- **Pulpit** — analiza AI ostatniej rozmowy i miejsce na notatki.
+- **Dane** — wszystkie pola leada, w tym pola własne ze źródła.
+- **Sekwencja** — status każdego kroku workflow dla tego leada.
+- **Wysłane emaile** — historia e-maili follow-up.
 
-{/* SCREENSHOT: https://app.speaklouder.pl/dashboard/campaigns/{id}/leads/{leadId} — ten sam lead, zakładka "Sekwencja" aktywna, widoczne kroki sekwencji z różnymi statusami */}
 <img src="/images/lead-karta-sekwencja.png" alt="Karta leada, zakładka Sekwencja z krokami workflow" />
 
-Nad zakładkami masz szybkie akcje: **Notatka**, **Email**, **Zadzwoń** (jeśli numer jest dostępny) i **Więcej** (dodatkowe opcje, np. zmiana statusu).
+Zakładka **Sekwencja** pokazuje, co agent już zrobił i co ma zaplanowane (odebrane, anulowane, zaplanowane), a osobno — połączenia wykonane ręcznie, poza sekwencją.
 
 <Note>
-Wynik "Zainteresowanie leada" aktualizuje się automatycznie po każdej rozmowie — to ocena AI na podstawie treści rozmowy, nie ręczne pole do wypełnienia.
+„Zainteresowanie leada" liczy AI na podstawie treści rozmów — to nie jest pole, które wypełniasz ręcznie.
 </Note>
