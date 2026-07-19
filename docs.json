@@ -30,45 +30,97 @@
     "links": []
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Aplikacja",
-          "href": "https://app.speaklouder.pl",
-          "icon": "arrow-up-right-from-square"
-        }
-      ]
-    },
-    "groups": [
+    "languages": [
       {
-        "group": "Start",
-        "pages": [
-          "index",
-          "quickstart",
-          "how-it-works",
-          "dashboard"
+        "language": "pl",
+        "default": true,
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Aplikacja",
+              "href": "https://app.speaklouder.pl",
+              "icon": "arrow-up-right-from-square"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "Start",
+            "pages": [
+              "index",
+              "quickstart",
+              "how-it-works",
+              "dashboard"
+            ]
+          },
+          {
+            "group": "Kampanie",
+            "pages": [
+              "kampanie/index",
+              "kampanie/pierwsze-kroki",
+              "kampanie/agent",
+              "kampanie/workflow",
+              "kampanie/leady",
+              "kampanie/aktywnosc",
+              "kampanie/numer-telefonu",
+              "kampanie/ustawienia"
+            ]
+          },
+          {
+            "group": "Konto",
+            "pages": [
+              "numery-telefonow",
+              "integracje",
+              "credits",
+              "ustawienia-konta"
+            ]
+          }
         ]
       },
       {
-        "group": "Kampanie",
-        "pages": [
-          "kampanie/index",
-          "kampanie/pierwsze-kroki",
-          "kampanie/agent",
-          "kampanie/workflow",
-          "kampanie/leady",
-          "kampanie/aktywnosc",
-          "kampanie/numer-telefonu",
-          "kampanie/ustawienia"
-        ]
-      },
-      {
-        "group": "Konto",
-        "pages": [
-          "numery-telefonow",
-          "integracje",
-          "credits",
-          "ustawienia-konta"
+        "language": "en",
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Open the app",
+              "href": "https://app.speaklouder.ai",
+              "icon": "arrow-up-right-from-square"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "Start",
+            "pages": [
+              "en/index",
+              "en/quickstart",
+              "en/how-it-works",
+              "en/dashboard"
+            ]
+          },
+          {
+            "group": "Campaigns",
+            "pages": [
+              "en/campaigns/index",
+              "en/campaigns/get-started",
+              "en/campaigns/agent",
+              "en/campaigns/workflow",
+              "en/campaigns/source",
+              "en/campaigns/leads",
+              "en/campaigns/activity",
+              "en/campaigns/phone-number",
+              "en/campaigns/settings"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "en/phone-numbers",
+              "en/integrations",
+              "en/wallet",
+              "en/account-settings"
+            ]
+          }
         ]
       }
     ]

@@ -1,0 +1,35 @@
+---
+title: "Workflow"
+description: "When the agent calls, and what happens automatically after the conversation."
+---
+
+**Workflow** is the campaign's playbook: when and how many times the agent tries to reach a lead, and what it does automatically once the call is over.
+
+<img src="/images/en/workflow-top.png" alt="Workflow: contact sequence and call schedule" />
+
+## Contact sequence
+
+The steps the agent runs for each lead, in order — for example a first call, then an SMS reminder, then a second attempt. Click **Edit sequence** to reorder steps or add and remove them.
+
+## Call schedule
+
+Set the **time window** and the **active days** on which the agent is allowed to call. Outside that window no calls go out.
+
+## After the conversation
+
+<img src="/images/en/workflow-automations.png" alt="SMS automation with dynamic variables and content field" />
+
+Each automation has a toggle; expand the row to configure it.
+
+- **SMS after qualification** — an automatic SMS once the agent decides a lead is interested. Personalise it with **dynamic variables** such as `{{full_name}}` or `{{first_name}}` — click a variable to copy it. SMS content is capped at 160 characters and ASCII only (emoji and accented characters are converted).
+- **Email after qualification** — a personalised follow-up email. Requires [Gmail connected](/en/integrations).
+- **Transfer to sales rep** — hands a qualified lead to a salesperson live, during the call.
+
+## Advanced
+
+- **Custom qualification condition** — describe in your own words when a lead counts as qualified. The agent factors this into how it judges the call.
+- **Post-call webhook** — sends the data from every call to an external system over HTTP POST (Make, Zapier, your own CRM).
+
+<Note>
+Changes to the sequence and schedule apply to **future** calls. They don't undo anything the agent has already done.
+</Note>
