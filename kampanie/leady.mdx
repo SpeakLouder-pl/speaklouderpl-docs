@@ -3,7 +3,7 @@ title: "Leady"
 description: "Skąd napływają kontakty, lista CRM i karta pojedynczego leada."
 ---
 
-Sekcja **Leady** ma dwie części: **Źródło** (skąd napływają kontakty) i **CRM** (lista wszystkich leadów). Typ źródła wybierasz raz, przy tworzeniu kampanii — tutaj go konfigurujesz.
+Sekcja **Leady** ma dwie części: **Źródło** (skąd napływają kontakty) i **CRM** (lista wszystkich leadów). Typ źródła wybierasz raz, przy tworzeniu kampanii, tutaj go konfigurujesz.
 
 ## Źródło
 
@@ -11,7 +11,7 @@ Sekcja **Leady** ma dwie części: **Źródło** (skąd napływają kontakty) i 
 <Tab title="CSV Upload">
 Wgrywasz gotową listę kontaktów z pliku.
 
-<img src="/images/zrodlo-csv.png" alt="Import CSV — strefa upuszczania pliku" />
+<img src="/images/zrodlo-csv.png" alt="Import CSV, strefa upuszczania pliku" />
 
 Przeciągnij plik CSV w pole albo kliknij **Przeglądaj pliki**. Po wgraniu dopasujesz kolumny z pliku do pól leada (imię, telefon, e-mail…).
 
@@ -23,11 +23,11 @@ Leady wpadają automatycznie z zewnętrznego systemu w czasie rzeczywistym.
 
 <img src="/images/zrodlo-webhook.png" alt="Źródło typu Webhook HTTP z adresem i tokenem" />
 
-Aplikacja generuje gotowy adres URL (z ukrytym tokenem, który identyfikuje Twoją kampanię). Ustaw dowolny system — formularz na stronie, Make.com, Zapier, własny backend — tak, aby wysyłał na ten adres żądanie POST z danymi leada. Przycisk **Integracja Make.com** ułatwia połączenie z Make.
+Aplikacja generuje gotowy adres URL (z ukrytym tokenem, który identyfikuje Twoją kampanię). Ustaw dowolny system (formularz na stronie, Make.com, Zapier, własny backend) tak, aby wysyłał na ten adres żądanie POST z danymi leada. Przycisk **Integracja Make.com** ułatwia połączenie z Make.
 
 W sekcji **Pola własne** dodajesz dodatkowe dane (np. nazwę produktu), które agent dostanie razem z leadem.
 
-<Warning>Adres zawiera Twój prywatny token — traktuj go jak hasło i nie udostępniaj publicznie.</Warning>
+<Warning>Adres zawiera Twój prywatny token, traktuj go jak hasło i nie udostępniaj publicznie.</Warning>
 </Tab>
 
 <Tab title="Shopify">
@@ -47,9 +47,9 @@ Lista wszystkich leadów w kampanii, z wyszukiwarką, filtrowaniem i sortowaniem
 
 Każdy wiersz to jeden lead: imię i nazwisko, **status**, liczba połączeń i data ostatniej aktywności. Statusy:
 
-- 🟢 **Zakwalifikowany** — agent uznał, że jest zainteresowany.
-- 🔴 **Niezakwalifikowany** — rozmowa odbyła się, ale bez zainteresowania.
-- 🟡 **Bez kontaktu** — nie udało się porozmawiać (brak odpowiedzi).
+- 🟢 **Zakwalifikowany**: agent uznał, że jest zainteresowany.
+- 🔴 **Niezakwalifikowany**: rozmowa odbyła się, ale bez zainteresowania.
+- 🟡 **Bez kontaktu**: nie udało się porozmawiać (brak odpowiedzi).
 
 Kliknij wiersz, żeby otworzyć kartę leada.
 
@@ -61,15 +61,15 @@ Po lewej dane kontaktowe, tagi i pasek **Zainteresowanie leada** (ocena 0–100 
 
 W środku cztery zakładki:
 
-- **Pulpit** — analiza AI ostatniej rozmowy i miejsce na notatki.
-- **Dane** — wszystkie pola leada, w tym pola własne ze źródła.
-- **Sekwencja** — status każdego kroku workflow dla tego leada.
-- **Wysłane emaile** — historia e-maili follow-up.
+- **Pulpit**: analiza AI ostatniej rozmowy i miejsce na notatki.
+- **Dane**: wszystkie pola leada, w tym pola własne ze źródła.
+- **Sekwencja**: status każdego kroku workflow dla tego leada.
+- **Wysłane emaile**: historia e-maili follow-up.
 
 <img src="/images/lead-karta-sekwencja.png" alt="Karta leada, zakładka Sekwencja z krokami workflow" />
 
-Zakładka **Sekwencja** pokazuje, co agent już zrobił i co ma zaplanowane (odebrane, anulowane, zaplanowane), a osobno — połączenia wykonane ręcznie, poza sekwencją.
+Zakładka **Sekwencja** pokazuje, co agent już zrobił i co ma zaplanowane (odebrane, anulowane, zaplanowane), a osobno połączenia wykonane ręcznie, poza sekwencją.
 
 <Note>
-„Zainteresowanie leada" liczy AI na podstawie treści rozmów — to nie jest pole, które wypełniasz ręcznie.
+„Zainteresowanie leada" liczy AI na podstawie treści rozmów, to nie jest pole, które wypełniasz ręcznie.
 </Note>

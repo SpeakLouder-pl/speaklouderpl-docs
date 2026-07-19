@@ -1,6 +1,6 @@
 ---
 title: "Source"
-description: "Where the campaign's leads come from — webhook, CSV, Meta Lead Ads or Shopify."
+description: "Where the campaign's leads come from, webhook, CSV, Meta Lead Ads or Shopify."
 ---
 
 **Source** is where contacts enter the campaign. You pick the type once, when you create the campaign; this tab is where you configure it. Once leads arrive, they show up in [Leads](/en/campaigns/leads).
@@ -11,12 +11,12 @@ Leads arrive in real time from any system that can send an HTTP request.
 
 <img src="/images/en/source-webhook.png" alt="Webhook source with POST address, token and custom fields" />
 
-**1. Webhook address** — SpeakLouder generates a ready-made URL with your token already in it. Point anything you like at it — a website form, Make.com, Zapier, your own backend — and have it send a **POST** request with the lead's details. **Make.com integration** opens the ready-made connection to Make.
+**1. Webhook address**: SpeakLouder generates a ready-made URL with your token already in it. Point anything you like at it (a website form, Make.com, Zapier, your own backend) and have it send a **POST** request with the lead's details. **Make.com integration** opens the ready-made connection to Make.
 
-**2. Custom fields** — extra data you want to hand the agent during the call, e.g. `product_name`. Add a key, pick its type and click **Save fields**. Keys allow lowercase letters, digits and underscores; anything else is converted for you.
+**2. Custom fields**: extra data you want to hand the agent during the call, e.g. `product_name`. Add a key, pick its type and click **Save fields**. Keys allow lowercase letters, digits and underscores; anything else is converted for you.
 
 <Warning>
-The address contains your private token — treat it like a password. Anyone who has it can push leads into your campaign. Don't paste it into public repos, screenshots or support tickets.
+The address contains your private token, treat it like a password. Anyone who has it can push leads into your campaign. Don't paste it into public repos, screenshots or support tickets.
 </Warning>
 
 <Tip>Custom fields you send show up on the lead card under **Form data**, and you can use them in the agent's prompt as `{{placeholders}}`.</Tip>
@@ -29,7 +29,7 @@ You upload a ready list of contacts from a spreadsheet.
 
 Drag a CSV file onto the drop zone or click **Browse files**. After the upload you map the columns in your file to lead fields (name, phone, email and so on).
 
-<Note>The campaign has to be paused to upload a CSV. That's deliberate — it stops the agent from calling half an imported list.</Note>
+<Note>The campaign has to be paused to upload a CSV. That's deliberate, it stops the agent from calling half an imported list.</Note>
 
 <Tip>Start with a small test file and check the column mapping before you upload the whole list.</Tip>
 </Tab>
@@ -39,11 +39,11 @@ Leads from lead-form ads on Facebook and Instagram, delivered the moment someone
 
 <img src="/images/en/source-meta-forms.png" alt="Meta Lead Ads source with connected Facebook Pages and form picker" />
 
-**1. Connected Facebook Page** — one connection per account, shared by every Meta campaign. You set it up in [Integrations](/en/integrations).
+**1. Connected Facebook Page**: one connection per account, shared by every Meta campaign. You set it up in [Integrations](/en/integrations).
 
-**2. Choose the source forms** — click **Load forms from Facebook** and tick the forms this campaign should take leads from. You can use several forms in one campaign, but a single form can only feed one campaign.
+**2. Choose the source forms**: click **Load forms from Facebook** and tick the forms this campaign should take leads from. You can use several forms in one campaign, but a single form can only feed one campaign.
 
-**3. Fields on each lead** — the question keys from the forms you picked. Use them in the agent's prompt as `{{placeholders}}`.
+**3. Fields on each lead**: the question keys from the forms you picked. Use them in the agent's prompt as `{{placeholders}}`.
 </Tab>
 
 <Tab title="Shopify">
@@ -54,7 +54,7 @@ For Shopify stores. The agent calls customers who **abandoned their cart** to re
 The tab walks you through five steps: install the SpeakLouder app in Shopify, import the ready-made flow in Shopify **Flow**, open it, connect it to this campaign and switch it on.
 
 <Note>
-The names of the abandoned items arrive in a single `product_names` field, separated by commas. It's set up for you — you don't need to add a custom field for it, and you can use `{{product_names}}` in the agent's prompt right away.
+The names of the abandoned items arrive in a single `product_names` field, separated by commas. It's set up for you, you don't need to add a custom field for it, and you can use `{{product_names}}` in the agent's prompt right away.
 </Note>
 </Tab>
 </Tabs>
